@@ -6,7 +6,10 @@
     "publisher": "Community",
     "icon_small_name": "small_icon.png",
     "icon_large_name": "large_icon.png",
-    "id": 102,
+    "cs_approved": true,
+    "cs_compatible": true,
+    "category": "Investigation",
+    "help_online": "https://docs.fortinet.com/document/fortisoar/1.1.0/forticwp/66/forticwp-v1-0-0",
     "configuration": {
         "fields": [
             {
