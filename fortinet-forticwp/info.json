@@ -9,7 +9,7 @@
     "cs_approved": true,
     "cs_compatible": true,
     "category": "Investigation",
-    "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/forticwp/66/forticwp-v1-0-0",
+    "help_online": "",
     "configuration": {
         "fields": [
             {
