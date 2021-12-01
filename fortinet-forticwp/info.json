@@ -129,14 +129,14 @@
                     "value": 50
                 },
                 {
-                    "title": "Alert ID",
+                    "title": "Alert IDs",
                     "required": false,
                     "editable": true,
                     "visible": true,
                     "type": "text",
-                    "name": "alert_id",
-                    "tooltip": "",
-                    "description": "Fetch Alert via its ID"
+                    "name": "alert_ids",
+                    "placeholder": "c188ac17ab1a6c3d4665249ba6a40000, c111ac17ab1a6c3d4665249ba6a40dc6...",
+                    "tooltip": "Fetch Alerts via their IDs (CSV if multiple alerts)"
                 },
                 {
                     "title": "User",
@@ -146,27 +146,27 @@
                     "type": "text",
                     "name": "alert_user",
                     "placeholder": "user1, user2, user3...",
-                    "description": "Filter alerts by one or multiple users (CSV if multiple)"
+                    "tooltip": "Filter alerts by one or multiple users (CSV if multiple users)"
                 },
                 {
                     "title": "Severity",
                     "required": false,
                     "editable": true,
                     "visible": true,
-                    "type": "text",
+                    "type": "multiselect",
                     "name": "severity",
-                    "placeholder": "Critical, Alert, Warning, Information, Pass",
-                    "description": "Filter alerts by one or multiple Severities (CSV if multiple)"
-                },
+                    "options": ["Critical", "Alert", "Warning", "Information", "Pass"],
+                    "tooltip": "Filter alerts by one or multiple Severities"
+                },              
                 {
                     "title": "State",
                     "required": false,
                     "editable": true,
                     "visible": true,
-                    "type": "text",
+                    "type": "multiselect",
                     "name": "alert_state",
-                    "placeholder": "Open, Acknowledge, Dismiss, Resolved",
-                    "description": "Filter alerts by one or multiple Severities (CSV if multiple)"
+                    "options": ["Open", "Acknowledge", "Dismiss", "Resolved"],
+                    "tooltip": "Filter alerts by one or multiple States"
                 }
             ]
         }

@@ -4,15 +4,15 @@
     {
       "@type": "WorkflowCollection",
       "name": "Sample - Fortinet FortiCWP - 1.0.0",
-      "description": null,
+      "description": "Sample playbooks for \"Fortinet FortiCWP\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
       "visible": true,
-      "image": null,
-      "uuid": "eb17af46-a556-4f83-be73-96f3e74ba679",
-      "id": 131,
+      "image": "/api/3/images/85ba2b8d-16e4-4e79-8a99-d5d583e0f2f3",
+      "uuid": "b26e89ba-1b77-4c03-b85c-50c54353bb67",
+      "id": 171,
       "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-      "createDate": 1621956975,
+      "createDate": 1638273991,
       "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-      "modifyDate": 1621956975,
+      "modifyDate": 1638273991,
       "recordTags": [],
       "workflows": [
         {
@@ -23,21 +23,58 @@
           "tag": null,
           "description": null,
           "isActive": true,
+          "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1621957166,
-          "collection": "/api/3/workflow_collections/eb17af46-a556-4f83-be73-96f3e74ba679",
+          "lastModifyDate": 1638273991,
+          "collection": "/api/3/workflow_collections/b26e89ba-1b77-4c03-b85c-50c54353bb67",
           "versions": [],
-          "triggerStep": "/api/3/workflow_steps/acd62fc7-b587-402c-810a-788bcf04e4cf",
+          "triggerStep": "/api/3/workflow_steps/bb6860f3-dbf2-488e-b9fc-9d41e42ab3bd",
           "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Results",
+              "description": null,
+              "arguments": {
+                "results": "{{vars.steps.Get_Account_Severity_Level.data}}"
+              },
+              "status": null,
+              "top": "300",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "uuid": "1a438a2f-c568-432b-b467-1ebe0c196913",
+              "id": 9300
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Account Severity Level",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiCWP",
+                "config": "61852d77-5e27-4a1c-a3c7-fdf99c857f2b",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "fortinet-forticwp",
+                "operation": "get_account_role",
+                "operationTitle": "Get User Account Details",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "659c27d4-e265-480f-8731-6f5847ee4a74",
+              "id": 9302
+            },
             {
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "arguments": {
-                "route": "96c3318f-6929-4df5-937a-1a332d7d2050",
+                "route": "8b3f8039-0a1a-4281-a9d6-f3cdccd6982a",
                 "resources": [
                   "alerts"
                 ],
@@ -64,74 +101,38 @@
               "top": "30",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "uuid": "acd62fc7-b587-402c-810a-788bcf04e4cf",
-              "id": 6687
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Get Account Severity Level",
-              "description": null,
-              "arguments": {
-                "name": "Fortinet FortiCWP",
-                "config": "61852d77-5e27-4a1c-a3c7-fdf99c857f2b",
-                "params": [],
-                "version": "1.0.0",
-                "connector": "forticwp",
-                "operation": "get_account_role",
-                "operationTitle": "Get User Account Details",
-                "pickFromTenant": false,
-                "step_variables": []
-              },
-              "status": null,
-              "top": "165",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "uuid": "c0942d03-4c07-42f5-b574-eeedb037a3c0",
-              "id": 6688
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Results",
-              "description": null,
-              "arguments": {
-                "results": "{{vars.steps.Get_Account_Severity_Level.data}}"
-              },
-              "status": null,
-              "top": "300",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "uuid": "956356e6-706c-441e-899f-fb3c92dfe4d4",
-              "id": 6689
+              "uuid": "bb6860f3-dbf2-488e-b9fc-9d41e42ab3bd",
+              "id": 9301
             }
           ],
           "routes": [
             {
               "@type": "WorkflowRoute",
               "name": "Start -> Get Account Severity Level",
-              "targetStep": "/api/3/workflow_steps/c0942d03-4c07-42f5-b574-eeedb037a3c0",
-              "sourceStep": "/api/3/workflow_steps/acd62fc7-b587-402c-810a-788bcf04e4cf",
+              "targetStep": "/api/3/workflow_steps/659c27d4-e265-480f-8731-6f5847ee4a74",
+              "sourceStep": "/api/3/workflow_steps/bb6860f3-dbf2-488e-b9fc-9d41e42ab3bd",
               "label": null,
               "isExecuted": false,
-              "uuid": "8f07de4d-6633-412a-8437-47c5af6eaeb8"
+              "uuid": "5cb37f82-65b3-4e45-a4fa-8ef53b19712d"
             },
             {
               "@type": "WorkflowRoute",
               "name": "Get Account Severity Level -> Results",
-              "targetStep": "/api/3/workflow_steps/956356e6-706c-441e-899f-fb3c92dfe4d4",
-              "sourceStep": "/api/3/workflow_steps/c0942d03-4c07-42f5-b574-eeedb037a3c0",
+              "targetStep": "/api/3/workflow_steps/1a438a2f-c568-432b-b467-1ebe0c196913",
+              "sourceStep": "/api/3/workflow_steps/659c27d4-e265-480f-8731-6f5847ee4a74",
               "label": null,
               "isExecuted": false,
-              "uuid": "ab8bcfab-08ca-4517-9a5d-b171a8def332"
+              "uuid": "1f371b57-ae04-462d-8f04-b03d0f400c17"
             }
           ],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "10271b34-c4ca-4a55-82fd-e6a089f36d31",
           "recordTags": [],
-          "id": 1446,
+          "id": 1834,
           "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "createDate": 1621957125,
+          "createDate": 1638273991,
           "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "modifyDate": 1621957167,
+          "modifyDate": 1638273991,
           "owners": [],
           "isPrivate": false
         },
@@ -143,21 +144,44 @@
           "tag": null,
           "description": null,
           "isActive": true,
+          "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1621957197,
-          "collection": "/api/3/workflow_collections/eb17af46-a556-4f83-be73-96f3e74ba679",
+          "lastModifyDate": 1638273991,
+          "collection": "/api/3/workflow_collections/b26e89ba-1b77-4c03-b85c-50c54353bb67",
           "versions": [],
-          "triggerStep": "/api/3/workflow_steps/4ecdfd42-cd54-468d-b2eb-b81607f46298",
+          "triggerStep": "/api/3/workflow_steps/6a2dcf9f-b730-4fd4-ace6-491d74f90a73",
           "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Account Severity Level",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiCWP",
+                "config": "61852d77-5e27-4a1c-a3c7-fdf99c857f2b",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "fortinet-forticwp",
+                "operation": "get_alert_severities",
+                "operationTitle": "Get Alert Severities",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "012b98ee-4b36-44fc-9b3d-8adc8351a8e2",
+              "id": 9305
+            },
             {
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "arguments": {
-                "route": "b02a72d6-f1aa-4a37-acf8-f5f76c718776",
+                "route": "92db8da7-1ca8-4bda-98ab-d3d134cc0a11",
                 "resources": [
                   "alerts"
                 ],
@@ -184,30 +208,8 @@
               "top": "30",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "uuid": "4ecdfd42-cd54-468d-b2eb-b81607f46298",
-              "id": 6690
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Get Account Severity Level",
-              "description": null,
-              "arguments": {
-                "name": "Fortinet FortiCWP",
-                "config": "61852d77-5e27-4a1c-a3c7-fdf99c857f2b",
-                "params": [],
-                "version": "1.0.0",
-                "connector": "forticwp",
-                "operation": "get_alert_severities",
-                "operationTitle": "Get Alert Severities",
-                "pickFromTenant": false,
-                "step_variables": []
-              },
-              "status": null,
-              "top": "165",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "uuid": "ac55e257-c6f8-4742-9160-6f1d690376ea",
-              "id": 6691
+              "uuid": "6a2dcf9f-b730-4fd4-ace6-491d74f90a73",
+              "id": 9303
             },
             {
               "@type": "WorkflowStep",
@@ -220,38 +222,38 @@
               "top": "300",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "uuid": "785871cb-f2fc-4f58-afe5-314b68a8fb27",
-              "id": 6692
+              "uuid": "7a338c7d-68f5-45d8-925e-2dac433abf34",
+              "id": 9304
             }
           ],
           "routes": [
             {
               "@type": "WorkflowRoute",
               "name": "Get Account Severity Level -> Results",
-              "targetStep": "/api/3/workflow_steps/785871cb-f2fc-4f58-afe5-314b68a8fb27",
-              "sourceStep": "/api/3/workflow_steps/ac55e257-c6f8-4742-9160-6f1d690376ea",
+              "targetStep": "/api/3/workflow_steps/7a338c7d-68f5-45d8-925e-2dac433abf34",
+              "sourceStep": "/api/3/workflow_steps/012b98ee-4b36-44fc-9b3d-8adc8351a8e2",
               "label": null,
               "isExecuted": false,
-              "uuid": "c3b3af21-c45b-4f88-af43-de3124e4ffab"
+              "uuid": "f9d63d43-802b-4061-8a2d-56e73879251a"
             },
             {
               "@type": "WorkflowRoute",
               "name": "Start -> Get Account Severity Level",
-              "targetStep": "/api/3/workflow_steps/ac55e257-c6f8-4742-9160-6f1d690376ea",
-              "sourceStep": "/api/3/workflow_steps/4ecdfd42-cd54-468d-b2eb-b81607f46298",
+              "targetStep": "/api/3/workflow_steps/012b98ee-4b36-44fc-9b3d-8adc8351a8e2",
+              "sourceStep": "/api/3/workflow_steps/6a2dcf9f-b730-4fd4-ace6-491d74f90a73",
               "label": null,
               "isExecuted": false,
-              "uuid": "f793c690-7ba8-408a-a369-f98b9500944b"
+              "uuid": "b7fb8326-417b-459d-bfd2-f484413cce39"
             }
           ],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "289e36de-5a5e-4a7a-91df-824c3f8f3da9",
           "recordTags": [],
-          "id": 1447,
+          "id": 1835,
           "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "createDate": 1621957173,
+          "createDate": 1638273991,
           "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "modifyDate": 1621957198,
+          "modifyDate": 1638273991,
           "owners": [],
           "isPrivate": false
         },
@@ -263,21 +265,22 @@
           "tag": null,
           "description": null,
           "isActive": true,
+          "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1621958078,
-          "collection": "/api/3/workflow_collections/eb17af46-a556-4f83-be73-96f3e74ba679",
+          "lastModifyDate": 1638330895,
+          "collection": "/api/3/workflow_collections/b26e89ba-1b77-4c03-b85c-50c54353bb67",
           "versions": [],
-          "triggerStep": "/api/3/workflow_steps/9be0ac22-ac95-4911-a3dc-c242d224753a",
+          "triggerStep": "/api/3/workflow_steps/28112d2b-a169-4afd-a891-f00226281cec",
           "steps": [
             {
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "arguments": {
-                "route": "a78d6fab-1469-441b-859a-3bf3443ce7ca",
+                "route": "d9962982-d63d-4385-bdd9-9ff8e306850c",
                 "resources": [
                   "alerts"
                 ],
@@ -304,8 +307,8 @@
               "top": "30",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "uuid": "9be0ac22-ac95-4911-a3dc-c242d224753a",
-              "id": 6696
+              "uuid": "28112d2b-a169-4afd-a891-f00226281cec",
+              "id": 9308
             },
             {
               "@type": "WorkflowStep",
@@ -317,15 +320,16 @@
                 "params": {
                   "skip": 0,
                   "limit": 0,
-                  "alert_id": "",
+                  "alert_id": "ca0702573482eb53f20eb12caa2a75d8",
                   "end_time": "{{arrow.utcnow()}}",
-                  "severity": "",
+                  "severity": [],
+                  "alert_ids": "ca0702573482eb53f20eb12caa2a75d8",
                   "alert_user": "",
-                  "start_time": "{{arrow.utcnow().shift(minutes=-15)}}",
-                  "alert_state": ""
+                  "start_time": "{{arrow.utcnow().shift(hours=-24)}}",
+                  "alert_state": []
                 },
                 "version": "1.0.0",
-                "connector": "forticwp",
+                "connector": "fortinet-forticwp",
                 "operation": "get_alert_by_filter",
                 "operationTitle": "Get Alerts",
                 "pickFromTenant": false,
@@ -335,8 +339,8 @@
               "top": "165",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "uuid": "97c79bf5-54cd-4695-ab5a-6b55b956ad9c",
-              "id": 6697
+              "uuid": "2e660dd9-915d-4c93-8f7c-e06238ffbe6d",
+              "id": 9315
             },
             {
               "@type": "WorkflowStep",
@@ -349,38 +353,38 @@
               "top": "300",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "uuid": "3386a5d3-0947-44cb-9890-0714869e469c",
-              "id": 6698
+              "uuid": "82ca44fc-d5a0-4baf-a3c3-daa2d5387467",
+              "id": 9306
             }
           ],
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "name": "Start -> Get Account Severity Level",
-              "targetStep": "/api/3/workflow_steps/97c79bf5-54cd-4695-ab5a-6b55b956ad9c",
-              "sourceStep": "/api/3/workflow_steps/9be0ac22-ac95-4911-a3dc-c242d224753a",
+              "name": "Start -> Copy  of Get Account Severity Level",
+              "targetStep": "/api/3/workflow_steps/2e660dd9-915d-4c93-8f7c-e06238ffbe6d",
+              "sourceStep": "/api/3/workflow_steps/28112d2b-a169-4afd-a891-f00226281cec",
               "label": null,
               "isExecuted": false,
-              "uuid": "0084e888-4114-4e35-9abd-203091ef97cc"
+              "uuid": "5edc8026-d700-4f90-b480-f7ac64f9898e"
             },
             {
               "@type": "WorkflowRoute",
-              "name": "Get Account Severity Level -> Results",
-              "targetStep": "/api/3/workflow_steps/3386a5d3-0947-44cb-9890-0714869e469c",
-              "sourceStep": "/api/3/workflow_steps/97c79bf5-54cd-4695-ab5a-6b55b956ad9c",
+              "name": "Copy  of Get Account Severity Level -> Results",
+              "targetStep": "/api/3/workflow_steps/82ca44fc-d5a0-4baf-a3c3-daa2d5387467",
+              "sourceStep": "/api/3/workflow_steps/2e660dd9-915d-4c93-8f7c-e06238ffbe6d",
               "label": null,
               "isExecuted": false,
-              "uuid": "f65e1687-5308-4b62-afeb-be52146563ba"
+              "uuid": "d2d794db-58f0-46b0-8b40-8a2e9bb65dd0"
             }
           ],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "2abab09e-79b5-4fb0-88e3-158abd8f26e5",
           "recordTags": [],
-          "id": 1449,
+          "id": 1836,
           "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "createDate": 1621957618,
+          "createDate": 1638273991,
           "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "modifyDate": 1621958080,
+          "modifyDate": 1638330898,
           "owners": [],
           "isPrivate": false
         },
@@ -392,21 +396,36 @@
           "tag": null,
           "description": null,
           "isActive": true,
+          "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1621957092,
-          "collection": "/api/3/workflow_collections/eb17af46-a556-4f83-be73-96f3e74ba679",
+          "lastModifyDate": 1638273991,
+          "collection": "/api/3/workflow_collections/b26e89ba-1b77-4c03-b85c-50c54353bb67",
           "versions": [],
-          "triggerStep": "/api/3/workflow_steps/edc69069-baa2-4d3a-b37f-baaaa17c4bc1",
+          "triggerStep": "/api/3/workflow_steps/416a21cc-92d5-487b-b43a-47ed642ee7a4",
           "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Results",
+              "description": null,
+              "arguments": {
+                "results": "{{vars.steps.Get_Account_Severity_Level.data}}"
+              },
+              "status": null,
+              "top": "300",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "uuid": "1fc2ef0d-2086-4abc-83e4-ebd3369f47f4",
+              "id": 9309
+            },
             {
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "arguments": {
-                "route": "af64193c-151b-4a77-8def-c3cc8e7d0d7c",
+                "route": "7e4b49f6-1ac8-445f-8b5c-92efde69085f",
                 "resources": [
                   "alerts"
                 ],
@@ -433,8 +452,8 @@
               "top": "30",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "uuid": "edc69069-baa2-4d3a-b37f-baaaa17c4bc1",
-              "id": 6684
+              "uuid": "416a21cc-92d5-487b-b43a-47ed642ee7a4",
+              "id": 9311
             },
             {
               "@type": "WorkflowStep",
@@ -445,7 +464,7 @@
                 "config": "61852d77-5e27-4a1c-a3c7-fdf99c857f2b",
                 "params": [],
                 "version": "1.0.0",
-                "connector": "forticwp",
+                "connector": "fortinet-forticwp",
                 "operation": "get_account_severity_level",
                 "operationTitle": "Get Account Severity Level",
                 "pickFromTenant": false,
@@ -455,52 +474,38 @@
               "top": "165",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "uuid": "80a108a0-d8f8-4bbd-a878-1929630225a6",
-              "id": 6685
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Results",
-              "description": null,
-              "arguments": {
-                "results": "{{vars.steps.Get_Account_Severity_Level.data}}"
-              },
-              "status": null,
-              "top": "300",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "uuid": "5427b230-ea29-4578-aff0-42504971bc8d",
-              "id": 6686
+              "uuid": "d1afa7ce-38bc-4726-b5b2-289396c16c7e",
+              "id": 9310
             }
           ],
           "routes": [
             {
               "@type": "WorkflowRoute",
               "name": "Start -> Get Account Severity Level",
-              "targetStep": "/api/3/workflow_steps/80a108a0-d8f8-4bbd-a878-1929630225a6",
-              "sourceStep": "/api/3/workflow_steps/edc69069-baa2-4d3a-b37f-baaaa17c4bc1",
+              "targetStep": "/api/3/workflow_steps/d1afa7ce-38bc-4726-b5b2-289396c16c7e",
+              "sourceStep": "/api/3/workflow_steps/416a21cc-92d5-487b-b43a-47ed642ee7a4",
               "label": null,
               "isExecuted": false,
-              "uuid": "73a1e709-9cf7-40ab-b67c-09997a1fe18f"
+              "uuid": "4e4ce997-125d-4a41-b391-704c515fe6a4"
             },
             {
               "@type": "WorkflowRoute",
               "name": "Get Account Severity Level -> Results",
-              "targetStep": "/api/3/workflow_steps/5427b230-ea29-4578-aff0-42504971bc8d",
-              "sourceStep": "/api/3/workflow_steps/80a108a0-d8f8-4bbd-a878-1929630225a6",
+              "targetStep": "/api/3/workflow_steps/1fc2ef0d-2086-4abc-83e4-ebd3369f47f4",
+              "sourceStep": "/api/3/workflow_steps/d1afa7ce-38bc-4726-b5b2-289396c16c7e",
               "label": null,
               "isExecuted": false,
-              "uuid": "8806f811-6265-4e2c-b7da-8766e5f03112"
+              "uuid": "23ce69f9-e045-45ad-9778-ef3f03634313"
             }
           ],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "53f82b15-0cf1-4af6-bca6-85f731987629",
           "recordTags": [],
-          "id": 1445,
+          "id": 1837,
           "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "createDate": 1621957022,
+          "createDate": 1638273991,
           "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "modifyDate": 1621957093,
+          "modifyDate": 1638273991,
           "owners": [],
           "isPrivate": false
         },
@@ -512,21 +517,36 @@
           "tag": null,
           "description": null,
           "isActive": true,
+          "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1621957351,
-          "collection": "/api/3/workflow_collections/eb17af46-a556-4f83-be73-96f3e74ba679",
+          "lastModifyDate": 1638273991,
+          "collection": "/api/3/workflow_collections/b26e89ba-1b77-4c03-b85c-50c54353bb67",
           "versions": [],
-          "triggerStep": "/api/3/workflow_steps/ef0af897-5dfd-4bb7-b80f-5efc37cb6ad7",
+          "triggerStep": "/api/3/workflow_steps/abcb8896-fd60-474e-874d-155bd0ce887d",
           "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Results",
+              "description": null,
+              "arguments": {
+                "results": "{{vars.steps.Get_Account_Severity_Level.data}}"
+              },
+              "status": null,
+              "top": "300",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "uuid": "014e562c-404f-4b9f-8769-0110586478a6",
+              "id": 9312
+            },
             {
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "arguments": {
-                "route": "f97774d6-16d6-440a-b7e8-1cc0230b1358",
+                "route": "000b4da6-bd3d-4a05-bfa3-cb3cd0b6ca51",
                 "resources": [
                   "alerts"
                 ],
@@ -553,8 +573,8 @@
               "top": "30",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "uuid": "ef0af897-5dfd-4bb7-b80f-5efc37cb6ad7",
-              "id": 6693
+              "uuid": "abcb8896-fd60-474e-874d-155bd0ce887d",
+              "id": 9313
             },
             {
               "@type": "WorkflowStep",
@@ -565,7 +585,7 @@
                 "config": "61852d77-5e27-4a1c-a3c7-fdf99c857f2b",
                 "params": [],
                 "version": "1.0.0",
-                "connector": "forticwp",
+                "connector": "fortinet-forticwp",
                 "operation": "get_resource_map",
                 "operationTitle": "Get Resource Map",
                 "pickFromTenant": false,
@@ -575,52 +595,38 @@
               "top": "165",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "uuid": "f6ba78e3-37a9-4d27-9667-474f764f93d3",
-              "id": 6694
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Results",
-              "description": null,
-              "arguments": {
-                "results": "{{vars.steps.Get_Account_Severity_Level.data}}"
-              },
-              "status": null,
-              "top": "300",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "uuid": "95631b56-623e-4fb4-8628-b1a1cbabcaf3",
-              "id": 6695
+              "uuid": "c6db628e-cbad-4f3a-b88b-38083e04f12d",
+              "id": 9314
             }
           ],
           "routes": [
             {
               "@type": "WorkflowRoute",
               "name": "Get Account Severity Level -> Results",
-              "targetStep": "/api/3/workflow_steps/95631b56-623e-4fb4-8628-b1a1cbabcaf3",
-              "sourceStep": "/api/3/workflow_steps/f6ba78e3-37a9-4d27-9667-474f764f93d3",
+              "targetStep": "/api/3/workflow_steps/014e562c-404f-4b9f-8769-0110586478a6",
+              "sourceStep": "/api/3/workflow_steps/c6db628e-cbad-4f3a-b88b-38083e04f12d",
               "label": null,
               "isExecuted": false,
-              "uuid": "12d1425c-7568-44c5-9b80-5097e4de8820"
+              "uuid": "d1cbe9cc-6d7f-4e57-a7ac-71efd3958b52"
             },
             {
               "@type": "WorkflowRoute",
               "name": "Start -> Get Account Severity Level",
-              "targetStep": "/api/3/workflow_steps/f6ba78e3-37a9-4d27-9667-474f764f93d3",
-              "sourceStep": "/api/3/workflow_steps/ef0af897-5dfd-4bb7-b80f-5efc37cb6ad7",
+              "targetStep": "/api/3/workflow_steps/c6db628e-cbad-4f3a-b88b-38083e04f12d",
+              "sourceStep": "/api/3/workflow_steps/abcb8896-fd60-474e-874d-155bd0ce887d",
               "label": null,
               "isExecuted": false,
-              "uuid": "1a1efa5f-8bd5-4b6a-85b2-3b777daf28a2"
+              "uuid": "de2faa52-63ee-4232-8b0e-0a053e1deaa8"
             }
           ],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "9b34660d-eae6-478c-9b63-a66fd99e928f",
           "recordTags": [],
-          "id": 1448,
+          "id": 1838,
           "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "createDate": 1621957214,
+          "createDate": 1638273991,
           "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "modifyDate": 1621957352,
+          "modifyDate": 1638273991,
           "owners": [],
           "isPrivate": false
         }

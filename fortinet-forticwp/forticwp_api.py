@@ -17,6 +17,8 @@ def csv_to_array(input_arg):
     
     if not input_arg:
         return []
+    elif isinstance(input_arg,list):
+        return input_arg
     elif ' ' in input_arg:
         input_arg = input_arg.replace(' ','')      
 
@@ -118,6 +120,7 @@ class FortiCwpCS(object):
             else:
                 self.forticwp_logging.exception({"data": response.content,'Status':'Failed with Status Code: '+str(response.status_code)})
                 return {"data": response.content,'Status':'Failed with Status Code: '+str(response.status_code)}
+                raise
 
         except Exception:
             self.forticwp_logging.exception("Request Failed")
@@ -146,7 +149,7 @@ class FortiCwpCS(object):
 
         return self.make_rest_call('/resourceURLMap')
       
-    def get_alert_by_filter(self, start_time, end_time, skip, limit, alert_id='', alert_user='', severity='' ,alert_state=''):
+    def get_alert_by_filter(self, start_time, end_time, skip, limit, alert_ids='', alert_user='', severity='' ,alert_state=''):
         '''Get cloud service alert details.'''
 
         self.headers.update({'companyId' : str(self.company_id)})
@@ -154,7 +157,7 @@ class FortiCwpCS(object):
         payload = {
         'startTime': start_time,
         'endTime': end_time,
-        'id':alert_id,
+        'id':"",
         'user': csv_to_array(alert_user),
         'activity':[],
         'objectIdList':[],
@@ -163,7 +166,7 @@ class FortiCwpCS(object):
         'severity': csv_to_array(severity),
         'status':[],
         'city':[],
-        'idList':[],
+        'idList':csv_to_array(alert_ids),
         'alertType':[],
         'alertState': csv_to_array(alert_state),
         'policyCodeList':[],
@@ -173,7 +176,7 @@ class FortiCwpCS(object):
         'countryList':[],
         'activityType':[],
         'asc':'',
-        'desc':'',
+        'desc':'timestamp',
         'skip':skip,
         'limit':limit
         }       
