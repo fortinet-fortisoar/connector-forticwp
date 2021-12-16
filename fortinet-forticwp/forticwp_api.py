@@ -8,7 +8,6 @@ import logging
 import arrow
 import logging.handlers
 from time import gmtime, strftime
-import jmespath
 from requests_toolbelt.utils import dump
 
 
