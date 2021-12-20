@@ -1,181 +1,282 @@
 {
-    "name": "fortinet-forticwp",
-    "version": "1.0.0",
-    "label": "Fortinet FortiCWP",
-    "description": "FortiCWP Top Cloud Access Security Broker designed to provide visibility, compliance, data security, and threat protection for cloud-based services being used by an organization",
-    "publisher": "Fortinet",
-    "icon_small_name": "small_icon.png",
-    "icon_large_name": "large_icon.png",
-    "cs_approved": true,
-    "cs_compatible": true,
-     "help_online": "",
-    "category": "Investigation",
-     "ingestion_modes": [
-        "scheduled"
-    ],
-    "configuration": {
-        "fields": [
-            {
-                "title": "Server URL",
-                "required": true,
-                "editable": true,
-                "visible": true,
-                "type": "text",
-                "name": "server_url",
-                "description": "URL of the Fortinet FortiCWP API",
-                "value": "https://www.forticwp.com"
-            },
-            {
-                "title": "API Key",
-                "required": true,
-                "editable": true,
-                "visible": true,
-                "type": "password",
-                "name": "api_key",
-                "description": "FortiCWP Credential, follow this link to generate it https://docs.fortinet.com/document/forticwp/21.1.0/online-help/585481/generate-credential "
-            },
-            {
-                "title": "Verify SSL",
-                "required": false,
-                "editable": true,
-                "visible": true,
-                "type": "checkbox",
-                "name": "verify_ssl",
-                "value": true,
-                "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True."
-            }
-        ]
-    },
-    "operations": [
-        {
-            "operation": "get_account_severity_level",
-            "title": "Get Account Severity Level",
-            "description": "Get severity level of each cloud service account",
-            "category": "investigation",
-            "annotation": "get_account_severity_level",
-            "output_schema": "",
-            "enabled": true,
-            "parameters": []
-        },
-        {
-            "operation": "get_account_role",
-            "title": "Get User Account Details",
-            "description": "Get user account details",
-            "category": "investigation",
-            "annotation": "get_account_role",
-            "output_schema": "",
-            "enabled": true,
-            "parameters": []
-        },
-        {
-            "operation": "get_alert_severities",
-            "title": "Get Alert Severities",
-            "description": "Get alert severities from FortiCWP",
-            "category": "investigation",
-            "annotation": "get_alert_severities",
-            "output_schema": "",
-            "enabled": true,
-            "parameters": []
-        },
-        {
-            "operation": "get_resource_map",
-            "title": "Get Resource Map",
-            "description": "Get the user and account basic information from FortiCWP",
-            "category": "investigation",
-            "annotation": "get_resource_map",
-            "output_schema": "",
-            "enabled": true,
-            "parameters": []
-        },
-        {
-            "operation": "get_alert_by_filter",
-            "title": "Get Alerts",
-            "description": "Get alerts of all accounts by filtering through alert filters",
-            "category": "investigation",
-            "annotation": "get_alert_by_filter",
-            "output_schema": "",
-            "enabled": true,
-            "parameters": [
-                {
-                    "title": "Start Time",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "type": "datetime",
-                    "name": "start_time",
-                    "tooltip": "Time of the oldest data you want to get"
-                },
-                {
-                    "title": "End Time",
-                    "required": true,
-                    "editable": true,
-                    "visible": true,
-                    "type": "datetime",
-                    "name": "end_time",
-                    "tooltip": "Time of the most recent data you want to get"
-                },
-                {
-                    "title": "Records to Skip",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "type": "integer",
-                    "name": "skip",
-                    "tooltip": "Skip the first X records from results",
-                    "value": 0
-                },
-                {
-                    "title": "Limit Fetched Records To",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "type": "integer",
-                    "name": "limit",
-                    "tooltip": "Limit the number of returned records to X (Max is 1000)",
-                    "value": 50
-                },
-                {
-                    "title": "Alert ID",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "type": "text",
-                    "name": "alert_id",
-                    "tooltip": "",
-                    "description": "Fetch Alert via its ID"
-                },
-                {
-                    "title": "User",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "type": "text",
-                    "name": "alert_user",
-                    "placeholder": "user1, user2, user3...",
-                    "description": "Filter alerts by one or multiple users (CSV if multiple)"
-                },
-                {
-                    "title": "Severity",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "type": "text",
-                    "name": "severity",
-                    "placeholder": "Critical, Alert, Warning, Information, Pass",
-                    "description": "Filter alerts by one or multiple Severities (CSV if multiple)"
-                },
-                {
-                    "title": "State",
-                    "required": false,
-                    "editable": true,
-                    "visible": true,
-                    "type": "text",
-                    "name": "alert_state",
-                    "placeholder": "Open, Acknowledge, Dismiss, Resolved",
-                    "description": "Filter alerts by one or multiple Severities (CSV if multiple)"
-                }
-            ]
-        }
+  "name": "fortinet-forticwp",
+  "version": "1.0.0",
+  "label": "Fortinet FortiCWP",
+  "description": "Fortinet's FortiCWP integrates with APIs provided by cloud vendors including AWS, Azure, and Google Cloud Platform to monitor and track all security components, including configurations, user activity, and traffic flow logs. This Connector automated operations such as retrieving the user account details from Fortinet FortiCWP, etc",
+  "publisher": "Fortinet",
+  "icon_small_name": "small_icon.png",
+  "icon_large_name": "large_icon.png",
+  "cs_approved": true,
+  "cs_compatible": true,
+  "help_online": "",
+  "category": "Investigation",
+  "ingestion_modes": [
+    "scheduled"
+  ],
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "server_url",
+        "description": "URL of the Fortinet FortiCWP API",
+        "value": "https://www.forticwp.com"
+      },
+      {
+        "title": "API Key",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "name": "api_key",
+        "description": "FortiCWP Credential, follow this link to generate it https://docs.fortinet.com/document/forticwp/21.1.0/online-help/585481/generate-credential "
+      },
+      {
+        "title": "Verify SSL",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "checkbox",
+        "name": "verify_ssl",
+        "value": true,
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True."
+      }
     ]
-    
+  },
+  "operations": [
+    {
+      "operation": "get_account_severity_level",
+      "title": "Get Account Severity Level",
+      "description": "Retrieves the severity level of each cloud service account from Fortinet FortiCWP.",
+      "category": "investigation",
+      "annotation": "get_account_severity_level",
+      "output_schema": {
+        "data": [
+          {
+            "service": "",
+            "severity": "",
+            "serviceId": ""
+          }
+        ],
+        "Status": ""
+      },
+      "enabled": true,
+      "parameters": []
+    },
+    {
+      "operation": "get_account_role",
+      "title": "Get User Account Details",
+      "description": "Retrieves the user account details from Fortinet FortiCWP.",
+      "category": "investigation",
+      "annotation": "get_account_role",
+      "output_schema": {
+        "data": {
+          "buId": "",
+          "roleId": "",
+          "companyId": "",
+          "ignoreHint": "",
+          "favoritePage": "",
+          "onlyContainerLicense": ""
+        },
+        "Status": ""
+      },
+      "enabled": true,
+      "parameters": []
+    },
+    {
+      "operation": "get_alert_severities",
+      "title": "Get Alert Severities",
+      "description": "Retrieves all the alert severities from Fortinet FortiCWP.",
+      "category": "investigation",
+      "annotation": "get_alert_severities",
+      "output_schema": {
+    "data": [
+      {
+        "id": "",
+        "name": ""
+      }
+    ],
+    "Status": "Success"
+  },
+      "enabled": true,
+      "parameters": []
+    },
+    {
+      "operation": "get_resource_map",
+      "title": "Get Resource Map",
+      "description": "Retrieves the basic information for users and accounts from Fortinet FortiCWP.",
+      "category": "investigation",
+      "annotation": "get_resource_map",
+      "output_schema": {
+    "data": [
+      {
+        "roleId": "",
+        "username": "",
+        "resourceURL": "",
+        "companyMapSet": [
+          {
+            "companyId": "",
+            "companyName": ""
+          }
+        ]
+      }
+    ],
+    "Status": ""
+  },
+      "enabled": true,
+      "parameters": []
+    },
+    {
+      "operation": "get_alert_by_filter",
+      "title": "Get Alerts",
+      "description": "Retrieves alerts of all the accounts from Fortinet FortiCWP that are filtered based on the time range of the alerts you want to retrieve and other input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "get_alert_by_filter",
+      "output_schema": {
+    "data": {
+      "data": [
+        {
+          "id": "",
+          "buId": "",
+          "user": "",
+          "state": "",
+          "fileId": "",
+          "object": "",
+          "region": "",
+          "userId": "",
+          "eventId": "",
+          "matches": "",
+          "service": "",
+          "objectId": "",
+          "policyId": "",
+          "severity": "",
+          "userName": "",
+          "alertType": "",
+          "companyId": "",
+          "createTime": "",
+          "defineType": "",
+          "objectType": "",
+          "policyCode": "",
+          "policyName": "",
+          "resultDesc": "",
+          "updateTime": "",
+          "contextName": "",
+          "eventIdList": [
+
+          ],
+          "applicationId": "",
+          "timestampUUID": "",
+          "geoLocationList": [
+            {
+              "ip": "",
+              "city": "",
+              "geonameId": "",
+              "countryCode": "",
+              "countryName": ""
+            }
+          ],
+          "displayOperation": "",
+          "violationActivity": ""
+        }
+      ],
+      "skip": "",
+      "limit": "",
+      "totalPage": "",
+      "totalCount": ""
+    },
+    "Status": ""
+  },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Start Time",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "start_time",
+          "tooltip": "Select the Start DateTime from when you want to retrieve alerts (oldest alerts) from Fortinet FortiCWP.",
+          "description": "Select the Start DateTime from when you want to retrieve alerts (oldest alerts) from Fortinet FortiCWP."
+        },
+        {
+          "title": "End Time",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "end_time",
+          "tooltip": "Select the End DateTime till when you want to retrieve alerts (most recent alerts) from Fortinet FortiCWP.",
+          "description": "Select the End DateTime till when you want to retrieve alerts (most recent alerts) from Fortinet FortiCWP."
+        },
+        {
+          "title": "Records to Skip",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "skip",
+          "tooltip": "Specify the first X records that you want to skip while retrieving alerts from Fortinet FortiCWP.",
+          "description": "(Optional) Specify the first X records that you want to skip while retrieving alerts from Fortinet FortiCWP.",
+          "value": 0
+        },
+        {
+          "title": "Limit Fetched Records To",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "limit",
+          "tooltip": "Specify the maximum number of records that you want this operation to fetch from Fortinet FortiCWP. The maximum number of records that can be retrieved is 1000.",
+          "description": "(Optional) Specify the maximum number of records that you want this operation to fetch from Fortinet FortiCWP. The maximum number of records that can be retrieved is 1000.",
+          "value": 50
+        },
+        {
+          "title": "Alert ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "alert_id",
+          "tooltip": "Specify the alert ID whose details you want to retrieve from Fortinet FortiCWP.",
+          "description": "(Optional) Specify the alert ID whose details you want to retrieve from Fortinet FortiCWP."
+        },
+        {
+          "title": "User",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "alert_user",
+          "placeholder": "user1, user2, user3...",
+          "description": "(Optional) Specify one or multiple users (CSV format if you are specifying multiple users) based on whom you want to retrieve alerts from Fortinet FortiCWP.",
+          "tooltip": "(Optional) Specify one or multiple users (CSV format if you are specifying multiple users) based on whom you want to retrieve alerts from Fortinet FortiCWP."
+        },
+        {
+          "title": "Severity",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "name": "severity",
+          "placeholder": "Critical, Alert, Warning, Information, Pass",
+          "description": "(Optional) Specify one or multiple severities (CSV format if you are specifying multiple severities) based on which you want to retrieve alerts from Fortinet FortiCWP.",
+          "tooltip": "Specify one or multiple severities (CSV format if you are specifying multiple severities) based on which you want to retrieve alerts from Fortinet FortiCWP."
+        },
+        {
+          "title": "State",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "alert_state",
+          "placeholder": "Open, Acknowledge, Dismiss, Resolved",
+          "description": "(Optional) Specify one or multiple states (CSV format if you are specifying multiple states) based on which you want to retrieve alerts from Fortinet FortiCWP.",
+          "tooltip": "Specify one or multiple states (CSV format if you are specifying multiple states) based on which you want to retrieve alerts from Fortinet FortiCWP."
+        }
+      ]
+    }
+  ]
 }
