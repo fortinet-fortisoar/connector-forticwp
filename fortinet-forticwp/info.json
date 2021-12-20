@@ -8,7 +8,7 @@
   "icon_large_name": "large_icon.png",
   "cs_approved": true,
   "cs_compatible": true,
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/fortinet-forticwp/207/fortinet-forticwp-v1-0-0",
   "category": "Investigation",
   "ingestion_modes": [
     "scheduled"
@@ -99,7 +99,7 @@
         "name": ""
       }
     ],
-    "Status": "Success"
+    "Status": ""
   },
       "enabled": true,
       "parameters": []
