@@ -259,7 +259,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "select",
+          "type": "text",
           "name": "severity",
           "placeholder": "Critical, Alert, Warning, Information, Pass",
           "description": "(Optional) Specify one or multiple severities (CSV format if you are specifying multiple severities) based on which you want to retrieve alerts from Fortinet FortiCWP.",
