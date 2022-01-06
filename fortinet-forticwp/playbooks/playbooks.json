@@ -4,15 +4,15 @@
     {
       "@type": "WorkflowCollection",
       "name": "Sample - Fortinet FortiCWP - 1.0.0",
-      "description": "Fortinet's FortiCWP integrates with APIs provided by cloud vendors including AWS, Azure, and Google Cloud Platform to monitor and track all security components, including configurations, user activity, and traffic flow logs. This Connector automated operations such as retrieving the user account details from Fortinet FortiCWP, etc",
+      "description": "Sample playbooks for \"Fortinet FortiCWP\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
       "visible": true,
-      "image": "/api/3/images/146f913a-c33e-4724-8da1-5747e00aa064",
+      "image": "/api/3/images/6f3d8f2c-f3aa-4c3a-86fd-b1c3033c5573",
       "uuid": "eb17af46-a556-4f83-be73-96f3e74ba679",
-      "id": 1061,
+      "id": 1218,
       "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-      "createDate": 1628230063,
+      "createDate": 1641460434,
       "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-      "modifyDate": 1628230063,
+      "modifyDate": 1641460434,
       "recordTags": [],
       "workflows": [
         {
@@ -28,7 +28,7 @@
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1640009607,
+          "lastModifyDate": 1641460619,
           "collection": "/api/3/workflow_collections/eb17af46-a556-4f83-be73-96f3e74ba679",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/acd62fc7-b587-402c-810a-788bcf04e4cf",
@@ -66,7 +66,7 @@
               "left": "120",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "acd62fc7-b587-402c-810a-788bcf04e4cf",
-              "id": 44074
+              "id": 51536
             },
             {
               "@type": "WorkflowStep",
@@ -88,7 +88,7 @@
               "left": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "da3bfac7-c7ca-4f24-97e2-0b8f6dc8d39c",
-              "id": 49096
+              "id": 51537
             }
           ],
           "routes": [
@@ -104,12 +104,15 @@
           ],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "10271b34-c4ca-4a55-82fd-e6a089f36d31",
-          "recordTags": [],
-          "id": 14019,
+          "recordTags": [
+            "Fortinet",
+            "fortinet-forticwp"
+          ],
+          "id": 16091,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1628230063,
+          "createDate": 1641460434,
           "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "modifyDate": 1640009607,
+          "modifyDate": 1641460619,
           "owners": [],
           "isPrivate": false
         },
@@ -126,7 +129,7 @@
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1640009651,
+          "lastModifyDate": 1641460585,
           "collection": "/api/3/workflow_collections/eb17af46-a556-4f83-be73-96f3e74ba679",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/4ecdfd42-cd54-468d-b2eb-b81607f46298",
@@ -151,7 +154,7 @@
               "left": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "03a50efd-7e81-4f66-bcf4-67e5548bc429",
-              "id": 49094
+              "id": 51538
             },
             {
               "@type": "WorkflowStep",
@@ -186,7 +189,7 @@
               "left": "120",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "4ecdfd42-cd54-468d-b2eb-b81607f46298",
-              "id": 44077
+              "id": 51539
             }
           ],
           "routes": [
@@ -202,12 +205,15 @@
           ],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "289e36de-5a5e-4a7a-91df-824c3f8f3da9",
-          "recordTags": [],
-          "id": 14020,
+          "recordTags": [
+            "Fortinet",
+            "fortinet-forticwp"
+          ],
+          "id": 16092,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1628230063,
+          "createDate": 1641460434,
           "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "modifyDate": 1640009650,
+          "modifyDate": 1641460585,
           "owners": [],
           "isPrivate": false
         },
@@ -224,7 +230,7 @@
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1640009738,
+          "lastModifyDate": 1641460564,
           "collection": "/api/3/workflow_collections/eb17af46-a556-4f83-be73-96f3e74ba679",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/9be0ac22-ac95-4911-a3dc-c242d224753a",
@@ -262,7 +268,7 @@
               "left": "120",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "9be0ac22-ac95-4911-a3dc-c242d224753a",
-              "id": 44080
+              "id": 51540
             },
             {
               "@type": "WorkflowStep",
@@ -293,7 +299,7 @@
               "left": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "ae74a83c-4cd8-499c-8135-7561a170baac",
-              "id": 49093
+              "id": 51541
             }
           ],
           "routes": [
@@ -309,12 +315,15 @@
           ],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "2abab09e-79b5-4fb0-88e3-158abd8f26e5",
-          "recordTags": [],
-          "id": 14021,
+          "recordTags": [
+            "Fortinet",
+            "fortinet-forticwp"
+          ],
+          "id": 16093,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1628230063,
+          "createDate": 1641460434,
           "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "modifyDate": 1640009738,
+          "modifyDate": 1641460564,
           "owners": [],
           "isPrivate": false
         },
@@ -331,7 +340,7 @@
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1640009564,
+          "lastModifyDate": 1641460532,
           "collection": "/api/3/workflow_collections/eb17af46-a556-4f83-be73-96f3e74ba679",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/edc69069-baa2-4d3a-b37f-baaaa17c4bc1",
@@ -356,7 +365,7 @@
               "left": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "4612237a-bd3c-4f7e-ab09-d9f232e27995",
-              "id": 49092
+              "id": 51542
             },
             {
               "@type": "WorkflowStep",
@@ -392,7 +401,7 @@
               "left": "120",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "edc69069-baa2-4d3a-b37f-baaaa17c4bc1",
-              "id": 44083
+              "id": 51543
             }
           ],
           "routes": [
@@ -408,12 +417,15 @@
           ],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "53f82b15-0cf1-4af6-bca6-85f731987629",
-          "recordTags": [],
-          "id": 14022,
+          "recordTags": [
+            "Fortinet",
+            "fortinet-forticwp"
+          ],
+          "id": 16094,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1628230063,
+          "createDate": 1641460434,
           "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "modifyDate": 1640009564,
+          "modifyDate": 1641460531,
           "owners": [],
           "isPrivate": false
         },
@@ -430,7 +442,7 @@
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1640009698,
+          "lastModifyDate": 1641460603,
           "collection": "/api/3/workflow_collections/eb17af46-a556-4f83-be73-96f3e74ba679",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/ef0af897-5dfd-4bb7-b80f-5efc37cb6ad7",
@@ -455,7 +467,7 @@
               "left": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "580da9fa-e265-4604-baac-7e833d63e019",
-              "id": 49095
+              "id": 51544
             },
             {
               "@type": "WorkflowStep",
@@ -490,7 +502,7 @@
               "left": "120",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "ef0af897-5dfd-4bb7-b80f-5efc37cb6ad7",
-              "id": 44086
+              "id": 51545
             }
           ],
           "routes": [
@@ -506,17 +518,23 @@
           ],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "9b34660d-eae6-478c-9b63-a66fd99e928f",
-          "recordTags": [],
-          "id": 14023,
+          "recordTags": [
+            "Fortinet",
+            "fortinet-forticwp"
+          ],
+          "id": 16095,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1628230063,
+          "createDate": 1641460434,
           "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "modifyDate": 1640009698,
+          "modifyDate": 1641460603,
           "owners": [],
           "isPrivate": false
         }
       ]
     }
   ],
-  "exported_tags": []
+  "exported_tags": [
+    "Fortinet",
+    "fortinet-forticwp"
+  ]
 }
