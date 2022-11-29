@@ -1,0 +1,615 @@
+{
+  "name": "fortinet-forticnp",
+  "version": "2.0.0",
+  "label": "Fortinet FortiCNP",
+  "description": "Fortinet FortiCNP integrates with APIs provided by cloud vendors including AWS, Azure, and Google Cloud Platform to monitor and track all security components, including configurations, user activity, and traffic flow logs. This Connector automated operations such as retrieving the get alerts from Fortinet FortiCNP, etc",
+  "publisher": "Fortinet",
+  "icon_small_name": "small_icon.png",
+  "icon_large_name": "large_icon.png",
+  "cs_approved": true,
+  "cs_compatible": true,
+  "help_online": "",
+  "category": "Investigation",
+  "ingestion_modes": [
+    "scheduled"
+  ],
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "server_url",
+        "description": "URL of the Fortinet FortiCNP API",
+        "value": "https://www.FortiCNP.com"
+      },
+      {
+        "title": "API Key",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "name": "api_key",
+        "description": "FortiCNP Credential, follow this link to generate it https://docs.fortinet.com/document/FortiCNP/21.1.0/online-help/585481/generate-credential "
+      },
+      {
+        "title": "Verify SSL",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "checkbox",
+        "name": "verify_ssl",
+        "value": true,
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "get_account_severity_level",
+      "title": "Get Account Severity Level",
+      "description": "Retrieves the severity level of each cloud service account from Fortinet FortiCNP.",
+      "category": "investigation",
+      "annotation": "get_account_severity_level",
+      "output_schema": {
+        "data": [
+          {
+            "service": "",
+            "severity": "",
+            "serviceId": ""
+          }
+        ],
+        "Status": ""
+      },
+      "enabled": true,
+      "parameters": []
+    },
+    {
+      "operation": "get_alert_severities",
+      "title": "Get Alert Severities",
+      "description": "Retrieves all the alert severities from Fortinet FortiCNP.",
+      "category": "investigation",
+      "annotation": "get_alert_severities",
+      "output_schema": {
+        "data": [
+          {
+            "id": "",
+            "name": ""
+          }
+        ],
+        "Status": ""
+      },
+      "enabled": true,
+      "parameters": []
+    },
+    {
+      "operation": "get_resource_map",
+      "title": "Get Resource Map",
+      "description": "Retrieves the basic information for users and accounts from Fortinet FortiCNP.",
+      "category": "investigation",
+      "annotation": "get_resource_map",
+      "output_schema": {
+        "data": [
+          {
+            "roleId": "",
+            "username": "",
+            "resourceURL": "",
+            "companyMapSet": [
+              {
+                "companyId": "",
+                "companyName": ""
+              }
+            ]
+          }
+        ],
+        "Status": ""
+      },
+      "enabled": true,
+      "parameters": []
+    },
+    {
+      "operation": "get_resource_list",
+      "title": "Get Resource List",
+      "description": "Get Resource List is a key API to retrieve a complete list of cloud resource details.",
+      "category": "investigation",
+      "annotation": "get_resource_list",
+      "output_schema": {
+        "data": {
+          "datas": [
+            {
+              "id": "",
+              "name": "",
+              "region": "",
+              "resourceId": "",
+              "category": "",
+              "riskLevel": "",
+              "availableActions": [
+              ],
+              "account": {
+                "service": "",
+                "accountName": "",
+                "accountNumber": "",
+                "accountEmail": "",
+                "organizationDomain": "",
+                "status": ""
+              },
+              "lastScanTime": "",
+              "rriSupport": "",
+              "state": "",
+              "riskScore": ""
+            }
+          ],
+          "totalPage": "",
+          "limit": "",
+          "skip": "",
+          "totalCount": ""
+        },
+        "Status": ""
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Filter JSON",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "json",
+          "name": "filter",
+          "tooltip": "Specify the filter json that you want to retrieve from Fortinet FortiCNP. Filter json in the format of [{\"key\": \"<resource platform>\", \"option\": [{\"key\": \"<resource type>\" } ] } ] }",
+          "description": "Specify the filter json that you want to retrieve from Fortinet FortiCNP. e.g [{\"key\": \"GoogleCloud\", \"option\": [{\"key\": \"Compute Engine Instance\" } ] } ] }",
+          "value": [
+            {
+              "key": "GoogleCloud",
+              "option": [
+                {
+                  "key": "Compute Engine Instance"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Records to Skip",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "skip",
+          "tooltip": "Specify the first X records that you want to skip while retrieving response from Fortinet FortiCNP.",
+          "description": "(Optional) Specify the first X records that you want to skip while retrieving response from Fortinet FortiCNP.",
+          "value": 0
+        },
+        {
+          "title": "Limit Fetched Records To",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "limit",
+          "tooltip": "Specify the maximum number of records that you want this operation to fetch from Fortinet FortiCNP.",
+          "description": "(Optional) Specify the maximum number of records that you want this operation to fetch from Fortinet FortiCNP",
+          "value": 50
+        },
+        {
+          "title": "Order By",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "ID",
+            "Region",
+            "Resource Type",
+            "Risk Level"
+          ],
+          "name": "orderBy",
+          "tooltip": "The filter options for the return resource list, available options: ID, Region, Resource Type and Risk Level",
+          "description": "The filter options for the return resource list, available options: ID, Region, Resource Type and Risk Level",
+          "value": "Ascending"
+        },
+        {
+          "title": "Order Direction",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Ascending",
+            "Descending"
+          ],
+          "name": "orderDirection",
+          "tooltip": "The order of the returned resource list, it can be ascending order or descending order.",
+          "description": "The order of the returned resource list, it can be ascending order or descending order.",
+          "value": "Ascending"
+        }
+      ]
+    },
+    {
+      "operation": "get_resource_details",
+      "title": "Get Resource Details",
+      "description": "Retrieve details of a specific cloud resource from Fortinet FortiCNP",
+      "category": "investigation",
+      "annotation": "get_resource_details",
+      "output_schema": {
+        "creationTimestamp": "",
+        "type": "",
+        "machineType": "",
+        "status": "",
+        "zone": "",
+        "project": "",
+        "tags": {
+          "fingerprint": ""
+        },
+        "firewalls": [
+        ],
+        "networkInterfaces": [
+          {
+            "kind": "",
+            "network": "",
+            "subnetwork": "",
+            "networkIP": "",
+            "name": "nic0",
+            "accessConfigs": [
+              {
+                "kind": "",
+                "type": "",
+                "name": "",
+                "natIP": "",
+                "networkTier": ""
+              }
+            ]
+          }
+        ],
+        "name": "",
+        "resourceType": "",
+        "region": "",
+        "deleted": ""
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Resource ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "resourceid",
+          "tooltip": "Specify the Resource ID whose details you want to retrieve from Fortinet FortiCNP.",
+          "description": "Specify the Resource ID whose details you want to retrieve from Fortinet FortiCNP."
+        }
+      ]
+    },
+    {
+      "operation": "get_alert_by_filter",
+      "title": "Get Alerts",
+      "description": "Retrieves alerts of all the accounts from Fortinet FortiCNP that are filtered based on the time range of the alerts you want to retrieve and other input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "get_alert_by_filter",
+      "output_schema": {
+        "data": {
+          "data": [
+            {
+              "buId": "",
+              "companyId": "",
+              "timestampUUID": "",
+              "id": "",
+              "object": "",
+              "objectType": "",
+              "objectId": "",
+              "user": "",
+              "userName": "",
+              "severity": "",
+              "applicationId": "",
+              "violationActivity": "",
+              "displayOperation": "",
+              "createTime": "",
+              "updateTime": "",
+              "policyName": "",
+              "policyId": "",
+              "policyCode": "",
+              "contextName": "",
+              "eventIdList": [
+              ],
+              "service": "",
+              "description": "",
+              "resultDesc": "",
+              "matches": "",
+              "region": "",
+              "alertType": "",
+              "defineType": "",
+              "title": "",
+              "nodeType": "",
+              "port": "",
+              "state": "",
+              "resourceId": ""
+            }
+          ],
+          "totalPage": "",
+          "limit": "",
+          "skip": "",
+          "totalCount": ""
+        },
+        "Status": ""
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Start Time",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "start_time",
+          "tooltip": "Select the Start DateTime from when you want to retrieve alerts (oldest alerts) from Fortinet FortiCNP.",
+          "description": "Select the Start DateTime from when you want to retrieve alerts (oldest alerts) from Fortinet FortiCNP."
+        },
+        {
+          "title": "End Time",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "end_time",
+          "tooltip": "Select the End DateTime till when you want to retrieve alerts (most recent alerts) from Fortinet FortiCNP.",
+          "description": "Select the End DateTime till when you want to retrieve alerts (most recent alerts) from Fortinet FortiCNP."
+        },
+        {
+          "title": "Records to Skip",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "skip",
+          "tooltip": "Specify the first X records that you want to skip while retrieving alerts from Fortinet FortiCNP.",
+          "description": "(Optional) Specify the first X records that you want to skip while retrieving alerts from Fortinet FortiCNP.",
+          "value": 0
+        },
+        {
+          "title": "Limit Fetched Records To",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "limit",
+          "tooltip": "Specify the maximum number of records that you want this operation to fetch from Fortinet FortiCNP. The maximum number of records that can be retrieved is 1000.",
+          "description": "(Optional) Specify the maximum number of records that you want this operation to fetch from Fortinet FortiCNP. The maximum number of records that can be retrieved is 1000.",
+          "value": 50
+        },
+        {
+          "title": "Alert ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "alert_id",
+          "tooltip": "Specify the alert ID whose details you want to retrieve from Fortinet FortiCNP.",
+          "description": "(Optional) Specify the alert ID whose details you want to retrieve from Fortinet FortiCNP."
+        },
+        {
+          "title": "User",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "alert_user",
+          "placeholder": "user1, user2, user3...",
+          "description": "(Optional) Specify one or multiple users (CSV format if you are specifying multiple users) based on whom you want to retrieve alerts from Fortinet FortiCNP.",
+          "tooltip": "(Optional) Specify one or multiple users (CSV format if you are specifying multiple users) based on whom you want to retrieve alerts from Fortinet FortiCNP."
+        },
+        {
+          "title": "Severity",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "severity",
+          "placeholder": "Critical, Alert, Warning, Information, Pass",
+          "description": "(Optional) Specify one or multiple severities (CSV format if you are specifying multiple severities) based on which you want to retrieve alerts from Fortinet FortiCNP.",
+          "tooltip": "Specify one or multiple severities (CSV format if you are specifying multiple severities) based on which you want to retrieve alerts from Fortinet FortiCNP."
+        },
+        {
+          "title": "State",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "alert_state",
+          "placeholder": "Open, Acknowledge, Dismiss, Resolved",
+          "description": "(Optional) Specify one or multiple states (CSV format if you are specifying multiple states) based on which you want to retrieve alerts from Fortinet FortiCNP.",
+          "tooltip": "Specify one or multiple states (CSV format if you are specifying multiple states) based on which you want to retrieve alerts from Fortinet FortiCNP."
+        }
+      ]
+    },
+    {
+      "operation": "get_events",
+      "title": "Get Events",
+      "description": "Get activity events definition from FortiCNP",
+      "category": "investigation",
+      "annotation": "get_events",
+      "output_schema": [
+        {
+          "id": "",
+          "name": "",
+          "nameEnum": "",
+          "value": "",
+          "category": "",
+          "searchField": ""
+        }
+      ],
+      "enabled": true,
+      "parameters": [
+      ]
+    },
+    {
+      "operation": "get_policy_violation",
+      "title": "Get Policy Violation",
+      "description": "Get top violation policies and details based on input parameters provided.",
+      "category": "investigation",
+      "annotation": "get_policy_violation",
+      "output_schema": [
+        {
+          "id": "",
+          "key": "",
+          "value": ""
+        }
+      ],
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Start Time",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "starttime",
+          "tooltip": "Select the Start DateTime from when you want to retrieve data from Fortinet FortiCNP.",
+          "description": "Select the Start DateTime from when you want to retrieve data from Fortinet FortiCNP."
+        },
+        {
+          "title": "End Time",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "endtime",
+          "tooltip": "Select the End DateTime till when you want to retrieve data from Fortinet FortiCNP.",
+          "description": "Select the End DateTime till when you want to retrieve data from Fortinet FortiCNP."
+        }
+      ]
+    },
+    {
+      "operation": "get_document_violation",
+      "title": "Get Document Violation",
+      "description": "Get the document violation details against data pattern based on input parameters provided.",
+      "category": "investigation",
+      "annotation": "get_document_violation",
+      "output_schema": {
+        "data": [],
+        "totalPage": "",
+        "limit": "",
+        "skip": "",
+        "totalCount": ""
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "File ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "fileId",
+          "tooltip": "File ID of the document under monitoring in FortiCNP - File ID can be obtained through the response variable objectId from Get Alert by Filter action, When the response variable objectType in the \"Get Alerts\" API response is of type \"Document\"",
+          "description": "File ID of the document under monitoring in FortiCNP - File ID can be obtained through the response variable objectId from Get Alert by Filter. When the response variable objectType in the \"Get Alerts\" API response is of type \"Document\", the objectId is also the file ID. Other types of objectType cannot use objectId as the file ID."
+        }
+      ]
+    },
+    {
+      "operation": "get_finding_list",
+      "title": "Get Finding List",
+      "description": "Get all the findings of a specific resource in a custom date range.",
+      "category": "investigation",
+      "annotation": "get_finding_list",
+      "output_schema": {
+        "data": [
+          {
+            "buId": "",
+            "companyId": "",
+            "timestampUUID": "",
+            "id": "",
+            "object": "",
+            "objectType": "",
+            "objectId": "",
+            "objectContext": "",
+            "user": "",
+            "userName": "",
+            "severity": "",
+            "applicationId": "",
+            "violationActivity": "",
+            "displayOperation": "",
+            "createTime": "",
+            "updateTime": "",
+            "policyName": "",
+            "policyId": "",
+            "policyCode": "",
+            "contextName": "",
+            "eventIdList": [
+            ],
+            "service": "",
+            "description": " ",
+            "resultDesc": "",
+            "matches": "",
+            "region": "",
+            "alertType": "",
+            "defineType": "",
+            "nodeType": "",
+            "port": "",
+            "state": "",
+            "resourceId": ""
+          }
+        ],
+        "totalPage": "",
+        "limit": "",
+        "skip": "",
+        "totalCount": ""
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Resource ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "objectId",
+          "tooltip": "The resource ID of the resource. The resource ID can be obtained through FortiCNP INSIGHTS > Risk > Resource Detail page.",
+          "description": "The resource ID of the resource. The resource ID can be obtained through FortiCNP INSIGHTS > Risk > Resource Detail page."
+        },
+        {
+          "title": "Start Time",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "startTime",
+          "tooltip": "Select the Start DateTime of filtered open alerts from when you want to retrieve data from Fortinet FortiCNP.",
+          "description": "Select the Start DateTime of filtered open alerts from when you want to retrieve data from Fortinet FortiCNP."
+        },
+        {
+          "title": "End Time",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "endTime",
+          "tooltip": "Select the End DateTime of filtered open alerts till when you want to retrieve data from Fortinet FortiCNP.",
+          "description": "Select the End DateTime of filtered open alerts till when you want to retrieve data from Fortinet FortiCNP."
+        },
+        {
+          "title": "Records to Skip",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "skip",
+          "tooltip": "Specify the first X records that you want to skip while retrieving response from Fortinet FortiCNP.",
+          "description": "(Optional) Specify the first X records that you want to skip while retrieving response from Fortinet FortiCNP.",
+          "value": 0
+        },
+        {
+          "title": "Limit Fetched Records To",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "limit",
+          "tooltip": "Specify the maximum number of records that you want this operation to fetch from Fortinet FortiCNP.",
+          "description": "(Optional) Specify the maximum number of records that you want this operation to fetch from Fortinet FortiCNP",
+          "value": 50
+        }
+      ]
+    }
+  ]
+}
