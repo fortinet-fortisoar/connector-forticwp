@@ -35,7 +35,6 @@ class FortiCnpCS(object):
                  logger=None
                  ):
         self.forticwp_credentials = "Basic " + forticwp_credentials
-        # self.base_url = base_url + '/api/v1'
         self.base_url = base_url
         self.verify_ssl = verify_ssl
         self.token_expires_at = 0
