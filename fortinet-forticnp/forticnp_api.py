@@ -24,6 +24,7 @@ def csv_to_array(input_arg):
     else:
         return [input_arg]
 
+
 class FortiCnpCS(object):
     ''' Main API Client Class '''
 
@@ -52,7 +53,7 @@ class FortiCnpCS(object):
         ''' Fetches bearer access token'''
 
         try:
-            response = self.make_rest_call('/api/v1/auth/credentials/token/',
+            response = self.make_rest_call(AUTH_API,
                                           data={"grant_type": "client_credentials"},
                                           method='POST'
                                           )
@@ -62,8 +63,8 @@ class FortiCnpCS(object):
                 self.token_expires_at = response.get('expires')
             
             else:
-                logger.exception('Authentication Failed {}'.format(response))
-                raise 'Authentication Failed {}'.format(response)
+                logger.exception('Authentication Failed {0}'.format(response))
+                raise 'Authentication Failed {0}'.format(response)
 
             resource_map = self.get_resource_map()
             self.role_id = resource_map[0]['roleId']
@@ -72,14 +73,14 @@ class FortiCnpCS(object):
             logger.info('Authentication successful. it will be valid until: {0}\n{1}\n'.format(self.token_expires_at,self.company_name))
 
         except Exception as err:
-            logger.exception("Authentication Failed, error is {}".format(str(err)))
-            raise ConnectorError("Authentication Failed, error is {}".format(str(err)))
+            logger.exception("Authentication Failed, error is {0}".format(str(err)))
+            raise ConnectorError("Authentication Failed, error is {0}".format(str(err)))
             
     def make_rest_call(self, endpoint, params=None, data=None, json=None, method='GET', login_flag=False):
         '''make_rest_call'''
 
         url = '{0}{1}'.format(self.base_url, endpoint)
-        logger.debug('\nRequest: URL {}\nHeaders:{}'.format(url, self.headers))
+        logger.debug('\nRequest: URL {0}\nHeaders:{1}'.format(url, self.headers))
         try:
             response = requests.request(method,
                                         url,
@@ -90,7 +91,7 @@ class FortiCnpCS(object):
                                         timeout=self.request_timeout,
                                         verify=self.verify_ssl,                                        
                                         )
-            logger.debug('REQUESTS_DUMP:\n{}'.format(dump.dump_all(response).decode('utf-8')))
+            logger.debug('REQUESTS_DUMP:\n{0}'.format(dump.dump_all(response).decode('utf-8')))
 
             if response.status_code in [200, 201]:
                 if 'json' in response.headers.get('Content-Type'):
@@ -99,7 +100,7 @@ class FortiCnpCS(object):
                     return response.content
             else:
                 logger.exception({"data": response.content, 'Status': 'Failed with Status Code: '+str(response.status_code)})
-                raise ConnectorError('response = {} and status code = {}'.format(response.content, response.status_code))
+                raise ConnectorError('response = {0} and status code = {1}'.format(response.content, response.status_code))
         except requests.exceptions.SSLError:
             raise ConnectorError('SSL certificate validation failed')
         except requests.exceptions.ConnectTimeout:
@@ -157,7 +158,7 @@ class FortiCnpCS(object):
         'limit':limit
         }       
         
-        return self.make_rest_call('/api/v1/alert/list',
+        return self.make_rest_call(GET_ALERTS,
                                   method='POST',
                                   json=payload
                                   )
