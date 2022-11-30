@@ -35,13 +35,6 @@ def check_health(config):
     try:
         forticwp = FortiCNP_init(config)
         return True
-        # response = forticwp.get_alert_severities()
-        # logger.info("Invoking check_health: {}".format(response['Status']))
-        # if response['Status'] == 'Success':
-        #     return True
-        # else:
-        #     logger.exception('{0}'.format(response))
-        #     raise ConnectorError('{0}'.format(response))
     except Exception as err:
         logger.exception('{0}'.format(err))
         raise ConnectorError('{0}'.format(err))
