@@ -1,0 +1,1010 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@type": "WorkflowCollection",
+      "name": "Sample - Fortinet FortiCNP - 2.0.0",
+      "description": "Sample playbooks for \"Fortinet FortiCNP\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
+      "visible": true,
+      "image": "",
+      "uuid": "0bd9aa2a-ac79-4a98-8cca-29d42380fd5d",
+      "id": 90,
+      "deletedAt": null,
+      "importedBy": [],
+      "recordTags": [],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Resource Map",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieves the basic information for users and accounts from Fortinet FortiCNP.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1669705478,
+          "collection": "/api/3/workflow_collections/0bd9aa2a-ac79-4a98-8cca-29d42380fd5d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/f63f999b-8d33-4227-b2b0-47a5d6b07ee9",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Resource Map",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiCNP",
+                "config": "1771f21b-9c86-43a5-b7c7-5e42e5b97615",
+                "params": [],
+                "version": "2.0.0",
+                "connector": "fortinet-forticnp",
+                "operation": "get_resource_map",
+                "operationTitle": "Get Resource Map",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "149",
+              "left": "425",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "8ddb62ec-0491-43bb-9b50-e71ab67f037a"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "76d04877-e958-4aeb-ae6b-374b6300e091",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "120",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "f63f999b-8d33-4227-b2b0-47a5d6b07ee9"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Resource Map",
+              "targetStep": "/api/3/workflow_steps/8ddb62ec-0491-43bb-9b50-e71ab67f037a",
+              "sourceStep": "/api/3/workflow_steps/f63f999b-8d33-4227-b2b0-47a5d6b07ee9",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "252890c9-0f9f-4fd0-ba84-8c44d0117a7c"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "1d192754-6a49-47ec-8cd6-bbfe8df181d5",
+          "id": 1265,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-FortiCNP"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Account Severity Level",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieves the severity level of each cloud service account from Fortinet FortiCNP.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1669705478,
+          "collection": "/api/3/workflow_collections/0bd9aa2a-ac79-4a98-8cca-29d42380fd5d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/8c010bd6-37ed-487a-b456-71b64d5672ea",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Account Severity Level",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiCNP",
+                "config": "1771f21b-9c86-43a5-b7c7-5e42e5b97615",
+                "params": [],
+                "version": "2.0.0",
+                "connector": "fortinet-forticnp",
+                "operation": "get_account_severity_level",
+                "operationTitle": "Get Account Severity Level",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "145",
+              "left": "423",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "1d5b2134-0529-49e3-a0d3-8427e6cb1e37"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "bad36d81-da2a-4f06-bd00-29f8df1bc911",
+                "title": "Fortinet FortiCNP: Get Account Severity Level",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "120",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "8c010bd6-37ed-487a-b456-71b64d5672ea"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Account Severity Level",
+              "targetStep": "/api/3/workflow_steps/1d5b2134-0529-49e3-a0d3-8427e6cb1e37",
+              "sourceStep": "/api/3/workflow_steps/8c010bd6-37ed-487a-b456-71b64d5672ea",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "158d0d63-205e-4262-baf5-44fc664872ad"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "4243a681-a421-4a0e-80de-93ef6b33bf54",
+          "id": 1263,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-FortiCNP"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Document Violation",
+          "aliasName": null,
+          "tag": null,
+          "description": "Get the document violation details against data pattern based on input parameters provided.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1669705478,
+          "collection": "/api/3/workflow_collections/0bd9aa2a-ac79-4a98-8cca-29d42380fd5d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/3da217d0-2643-4644-ab8b-92416763bbb1",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "fccb1a0e-d00d-4757-9783-24d5d233516b",
+                "title": "Fortinet FortiCNP: Get Document Violation",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "3da217d0-2643-4644-ab8b-92416763bbb1"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Document Violation",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiCNP",
+                "config": "1771f21b-9c86-43a5-b7c7-5e42e5b97615",
+                "params": {
+                  "fileId": "ErRoJOWS6112y6B14o6H02njep7dcL4qEg42tpXKHqQ"
+                },
+                "version": "2.0.0",
+                "connector": "fortinet-forticnp",
+                "operation": "get_document_violation",
+                "operationTitle": "Get Document Violation",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "200",
+              "left": "240",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "ab263fe8-8a39-4c46-bba2-06f03fd21996"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Document Violation",
+              "targetStep": "/api/3/workflow_steps/ab263fe8-8a39-4c46-bba2-06f03fd21996",
+              "sourceStep": "/api/3/workflow_steps/3da217d0-2643-4644-ab8b-92416763bbb1",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "d9748f0a-3f97-4203-a9b5-5f9d86b1f55d"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "4588e611-b058-4e08-a321-50c88d010d07",
+          "id": 1268,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-FortiCNP"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Policy Violation",
+          "aliasName": null,
+          "tag": null,
+          "description": "Get top violation policies and details based on input parameters provided.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1669705478,
+          "collection": "/api/3/workflow_collections/0bd9aa2a-ac79-4a98-8cca-29d42380fd5d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/a563817c-702f-4c1e-8bd3-3184657c67a8",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Policy Violation",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiCNP",
+                "config": "1771f21b-9c86-43a5-b7c7-5e42e5b97615",
+                "params": {
+                  "endtime": "2022-11-29T05:33:08.168Z",
+                  "starttime": "2022-10-31T18:30:00.000Z"
+                },
+                "version": "2.0.0",
+                "connector": "fortinet-forticnp",
+                "operation": "get_policy_violation",
+                "operationTitle": "Get Policy Violation",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "160",
+              "left": "358",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "63d8357c-af26-4ffe-ac71-48749f7206da"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "b7df21f0-05ef-4edb-a535-04d837b52f9f",
+                "title": "Fortinet FortiCNP: Get Policy Violation",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "a563817c-702f-4c1e-8bd3-3184657c67a8"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Policy Violation",
+              "targetStep": "/api/3/workflow_steps/63d8357c-af26-4ffe-ac71-48749f7206da",
+              "sourceStep": "/api/3/workflow_steps/a563817c-702f-4c1e-8bd3-3184657c67a8",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "5870546b-fcdd-4f0a-a79f-1f95533a17b5"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "89f7b5fd-2ec6-4e96-b847-9197b5d76ada",
+          "id": 1266,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-FortiCNP"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Alert Severities",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieves all the alert severities from Fortinet FortiCNP.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1669705478,
+          "collection": "/api/3/workflow_collections/0bd9aa2a-ac79-4a98-8cca-29d42380fd5d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/6666a08a-236d-41a5-87eb-1c8b467b178d",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Alert Severities",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiCNP",
+                "config": "1771f21b-9c86-43a5-b7c7-5e42e5b97615",
+                "params": [],
+                "version": "2.0.0",
+                "connector": "fortinet-forticnp",
+                "operation": "get_alert_severities",
+                "operationTitle": "Get Alert Severities",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "157",
+              "left": "438",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "4a07e526-ae96-4212-b0e1-21ece56a768d"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "cdabf7e0-36d1-47f6-ac27-45e0ebc4eb63",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "120",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "6666a08a-236d-41a5-87eb-1c8b467b178d"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alert Severities",
+              "targetStep": "/api/3/workflow_steps/4a07e526-ae96-4212-b0e1-21ece56a768d",
+              "sourceStep": "/api/3/workflow_steps/6666a08a-236d-41a5-87eb-1c8b467b178d",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "9bc9a8ac-5454-4e0b-8bc8-1fc19cd79e04"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "9e9c6dc6-63b4-48aa-9648-20072616f8be",
+          "id": 1259,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-FortiCNP"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Finding List",
+          "aliasName": null,
+          "tag": null,
+          "description": "Get all the findings of a specific resource in a custom date range.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1669705478,
+          "collection": "/api/3/workflow_collections/0bd9aa2a-ac79-4a98-8cca-29d42380fd5d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/b073ad77-26ba-44a6-8c3b-bf57f49db20b",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Finding List",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiCNP",
+                "config": "1771f21b-9c86-43a5-b7c7-5e42e5b97615",
+                "params": {
+                  "skip": 0,
+                  "limit": 50,
+                  "endTime": "2022-11-29T06:51:06.403Z",
+                  "objectId": "1346228099765380",
+                  "startTime": "2022-11-08T18:30:00.000Z"
+                },
+                "version": "2.0.0",
+                "connector": "fortinet-forticnp",
+                "operation": "get_finding_list",
+                "operationTitle": "Get Finding List",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "198",
+              "left": "334",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "21405b63-73d2-4ade-b338-62e793689b70"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "375ad247-f324-4d35-8d87-0df58edc7a87",
+                "title": "Fortinet FortiCNP: Get Finding List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "b073ad77-26ba-44a6-8c3b-bf57f49db20b"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Finding List",
+              "targetStep": "/api/3/workflow_steps/21405b63-73d2-4ade-b338-62e793689b70",
+              "sourceStep": "/api/3/workflow_steps/b073ad77-26ba-44a6-8c3b-bf57f49db20b",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "bc2d8349-f4b8-4543-ae7e-b07dc646585d"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "a37ebfdf-1f4d-47e4-acaa-bc6d957898c2",
+          "id": 1262,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-FortiCNP"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Resource Details",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieve details of a specific cloud resource from Fortinet FortiCNP",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1669705478,
+          "collection": "/api/3/workflow_collections/0bd9aa2a-ac79-4a98-8cca-29d42380fd5d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/fda4a875-2bb0-46c9-a2ce-7bad7b2cb759",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Resource Details",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiCNP",
+                "config": "1771f21b-9c86-43a5-b7c7-5e42e5b97615",
+                "params": {
+                  "resourceid": "110508392"
+                },
+                "version": "2.0.0",
+                "connector": "fortinet-forticnp",
+                "operation": "get_resource_details",
+                "operationTitle": "Get Resource Details",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "205",
+              "left": "322",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "ea8f1f70-f715-4a60-a730-3703b280013a"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "55931e5e-c1be-4f67-a18c-ec49bf59bace",
+                "title": "Fortinet FortiCNP: Get Resource Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "fda4a875-2bb0-46c9-a2ce-7bad7b2cb759"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Resource Details",
+              "targetStep": "/api/3/workflow_steps/ea8f1f70-f715-4a60-a730-3703b280013a",
+              "sourceStep": "/api/3/workflow_steps/fda4a875-2bb0-46c9-a2ce-7bad7b2cb759",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "8cb2c0c1-00d2-4d0f-b855-fd727710b041"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "b6c2877b-424a-4fef-b46d-e26ed4c052eb",
+          "id": 1267,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-FortiCNP"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Events",
+          "aliasName": null,
+          "tag": null,
+          "description": "Get activity events definition from FortiCNP",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1669705478,
+          "collection": "/api/3/workflow_collections/0bd9aa2a-ac79-4a98-8cca-29d42380fd5d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/b279cc9d-08c5-48f3-9817-7282e47a6203",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Events",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiCNP",
+                "config": "1771f21b-9c86-43a5-b7c7-5e42e5b97615",
+                "params": [],
+                "version": "2.0.0",
+                "connector": "fortinet-forticnp",
+                "operation": "get_events",
+                "operationTitle": "Get Events",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "239",
+              "left": "322",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "20f6d84a-9799-4b89-a883-8057335b7647"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "18430b0d-5a1a-4123-b874-6e52f2462208",
+                "title": "Fortinet fortiCNP: Get Events",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "b279cc9d-08c5-48f3-9817-7282e47a6203"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Events",
+              "targetStep": "/api/3/workflow_steps/20f6d84a-9799-4b89-a883-8057335b7647",
+              "sourceStep": "/api/3/workflow_steps/b279cc9d-08c5-48f3-9817-7282e47a6203",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "e4648662-09f6-4821-8bc8-4026581d9dab"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "b96ad065-6064-4d6f-8765-9aae565e03ea",
+          "id": 1261,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-FortiCNP"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Resource List",
+          "aliasName": null,
+          "tag": null,
+          "description": "Get Resource List is a key API to retrieve a complete list of cloud resource details.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1669705478,
+          "collection": "/api/3/workflow_collections/0bd9aa2a-ac79-4a98-8cca-29d42380fd5d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/17aea37a-841a-48e9-9168-36dab57c5269",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "16230c38-3dca-444e-b95f-14ebe1594954",
+                "title": "Fortinet FortiCNP: Get Resource List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "17aea37a-841a-48e9-9168-36dab57c5269"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Resource List",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiCNP",
+                "config": "1771f21b-9c86-43a5-b7c7-5e42e5b97615",
+                "params": {
+                  "skip": 0,
+                  "limit": 50,
+                  "filter": "[\n        {\n          \"select\": false,\n          \"key\": \"AWS\",\n          \"name\": \"AWS\",\n          \"option\": [\n            {\n              \"name\": \"S3 Bucket\",\n              \"key\": \"S3 Bucket\",\n              \"select\": true\n            }\n          ]\n        }\n      ]",
+                  "orderBy": "Region",
+                  "orderDirection": "Ascending"
+                },
+                "version": "2.0.0",
+                "connector": "fortinet-forticnp",
+                "operation": "get_resource_list",
+                "operationTitle": "Get Resource List",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "160",
+              "left": "360",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "c3b9a25e-4a5c-482f-980e-351d12f6d43b"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Resource List",
+              "targetStep": "/api/3/workflow_steps/c3b9a25e-4a5c-482f-980e-351d12f6d43b",
+              "sourceStep": "/api/3/workflow_steps/17aea37a-841a-48e9-9168-36dab57c5269",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "5bf6390b-8749-4df4-90ec-04d75cdac00d"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "eaddfaa4-9a36-4b44-a742-17b47c886bce",
+          "id": 1264,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-FortiCNP"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Alerts",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieves alerts of all the accounts from Fortinet FortiCNP that are filtered based on the time range of the alerts you want to retrieve and other input parameters you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1669705478,
+          "collection": "/api/3/workflow_collections/0bd9aa2a-ac79-4a98-8cca-29d42380fd5d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/ee5d34cc-d6b0-4c4e-b4ae-b0d88159ac57",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Alerts",
+              "description": null,
+              "arguments": {
+                "name": "Fortinet FortiCNP",
+                "config": "1771f21b-9c86-43a5-b7c7-5e42e5b97615",
+                "params": {
+                  "skip": 0,
+                  "limit": 50,
+                  "alert_id": "",
+                  "end_time": "2022-11-28T10:03:08.933Z",
+                  "severity": "",
+                  "alert_user": "",
+                  "start_time": "2022-10-31T18:30:00.000Z",
+                  "alert_state": ""
+                },
+                "version": "2.0.0",
+                "connector": "fortinet-forticnp",
+                "operation": "get_alert_by_filter",
+                "operationTitle": "Get Alerts",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "122",
+              "left": "411",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "2bf334f4-b5b8-4771-ae26-a8d294e679e9"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "b5de08d4-4c4b-4e25-82c3-e710b24e4a6c",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "120",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "ee5d34cc-d6b0-4c4e-b4ae-b0d88159ac57"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alerts",
+              "targetStep": "/api/3/workflow_steps/2bf334f4-b5b8-4771-ae26-a8d294e679e9",
+              "sourceStep": "/api/3/workflow_steps/ee5d34cc-d6b0-4c4e-b4ae-b0d88159ac57",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "c6c7f69f-5e23-455c-b559-7f393228d77c"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "f02b003d-84b6-4d7b-b54b-80bd32ea9cdf",
+          "id": 1260,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Fortinet",
+            "fortinet-FortiCNP"
+          ]
+        }
+      ]
+    }
+  ],
+  "exported_tags": [
+    "Fortinet",
+    "fortinet-FortiCNP"
+  ]
+}
