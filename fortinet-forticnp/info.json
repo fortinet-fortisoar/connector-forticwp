@@ -356,28 +356,6 @@
           "description": "Select the End DateTime till when you want to retrieve alerts (most recent alerts) from Fortinet FortiCNP."
         },
         {
-          "title": "Records to Skip",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "integer",
-          "name": "skip",
-          "tooltip": "Specify the first X records that you want to skip while retrieving alerts from Fortinet FortiCNP.",
-          "description": "(Optional) Specify the first X records that you want to skip while retrieving alerts from Fortinet FortiCNP.",
-          "value": 0
-        },
-        {
-          "title": "Limit Fetched Records To",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "integer",
-          "name": "limit",
-          "tooltip": "Specify the maximum number of records that you want this operation to fetch from Fortinet FortiCNP. The maximum number of records that can be retrieved is 1000.",
-          "description": "(Optional) Specify the maximum number of records that you want this operation to fetch from Fortinet FortiCNP. The maximum number of records that can be retrieved is 1000.",
-          "value": 50
-        },
-        {
           "title": "Alert ID",
           "required": false,
           "editable": true,
@@ -419,6 +397,28 @@
           "placeholder": "Open, Acknowledge, Dismiss, Resolved",
           "description": "(Optional) Specify one or multiple states (CSV format if you are specifying multiple states) based on which you want to retrieve alerts from Fortinet FortiCNP.",
           "tooltip": "Specify one or multiple states (CSV format if you are specifying multiple states) based on which you want to retrieve alerts from Fortinet FortiCNP."
+        },
+        {
+          "title": "Records to Skip",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "skip",
+          "tooltip": "Specify the first X records that you want to skip while retrieving alerts from Fortinet FortiCNP.",
+          "description": "(Optional) Specify the first X records that you want to skip while retrieving alerts from Fortinet FortiCNP.",
+          "value": 0
+        },
+        {
+          "title": "Limit Fetched Records To",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "limit",
+          "tooltip": "Specify the maximum number of records that you want this operation to fetch from Fortinet FortiCNP. The maximum number of records that can be retrieved is 1000.",
+          "description": "(Optional) Specify the maximum number of records that you want this operation to fetch from Fortinet FortiCNP. The maximum number of records that can be retrieved is 1000.",
+          "value": 50
         }
       ]
     },
