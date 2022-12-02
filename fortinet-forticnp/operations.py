@@ -156,7 +156,7 @@ operations = {
     "get_resource_details": get_resource_details,
     "get_events": get_events,
     "get_policy_violation": get_policy_violation,
-    "get_document_violation" : get_document_violation,
+    "get_document_violation": get_document_violation,
     "get_finding_list": get_finding_list
 
 }
