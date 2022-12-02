@@ -53,16 +53,13 @@
       "description": "Retrieves the severity level of each cloud service account from Fortinet FortiCNP.",
       "category": "investigation",
       "annotation": "get_account_severity_level",
-      "output_schema": {
-        "data": [
-          {
-            "service": "",
-            "severity": "",
-            "serviceId": ""
-          }
-        ],
-        "Status": ""
-      },
+      "output_schema": [
+        {
+          "service": "",
+          "severity": "",
+          "serviceId": ""
+        }
+      ],
       "enabled": true,
       "parameters": []
     },
@@ -72,15 +69,12 @@
       "description": "Retrieves all the alert severities from Fortinet FortiCNP.",
       "category": "investigation",
       "annotation": "get_alert_severities",
-      "output_schema": {
-        "data": [
-          {
-            "id": "",
-            "name": ""
-          }
-        ],
-        "Status": ""
-      },
+      "output_schema": [
+        {
+          "id": "",
+          "name": ""
+        }
+      ],
       "enabled": true,
       "parameters": []
     },
@@ -90,22 +84,19 @@
       "description": "Retrieves the basic information for users and accounts from Fortinet FortiCNP.",
       "category": "investigation",
       "annotation": "get_resource_map",
-      "output_schema": {
-        "data": [
-          {
-            "roleId": "",
-            "username": "",
-            "resourceURL": "",
-            "companyMapSet": [
-              {
-                "companyId": "",
-                "companyName": ""
-              }
-            ]
-          }
-        ],
-        "Status": ""
-      },
+      "output_schema": [
+        {
+          "roleId": "",
+          "username": "",
+          "resourceURL": "",
+          "companyMapSet": [
+            {
+              "companyId": "",
+              "companyName": ""
+            }
+          ]
+        }
+      ],
       "enabled": true,
       "parameters": []
     },
@@ -116,37 +107,34 @@
       "category": "investigation",
       "annotation": "get_resource_list",
       "output_schema": {
-        "data": {
-          "datas": [
-            {
-              "id": "",
-              "name": "",
-              "region": "",
-              "resourceId": "",
-              "category": "",
-              "riskLevel": "",
-              "availableActions": [
-              ],
-              "account": {
-                "service": "",
-                "accountName": "",
-                "accountNumber": "",
-                "accountEmail": "",
-                "organizationDomain": "",
-                "status": ""
-              },
-              "lastScanTime": "",
-              "rriSupport": "",
-              "state": "",
-              "riskScore": ""
-            }
-          ],
-          "totalPage": "",
-          "limit": "",
-          "skip": "",
-          "totalCount": ""
-        },
-        "Status": ""
+        "datas": [
+          {
+            "id": "",
+            "name": "",
+            "region": "",
+            "resourceId": "",
+            "category": "",
+            "riskLevel": "",
+            "availableActions": [
+            ],
+            "account": {
+              "service": "",
+              "accountName": "",
+              "accountNumber": "",
+              "accountEmail": "",
+              "organizationDomain": "",
+              "status": ""
+            },
+            "lastScanTime": "",
+            "rriSupport": "",
+            "state": "",
+            "riskScore": ""
+          }
+        ],
+        "totalPage": "",
+        "limit": "",
+        "skip": "",
+        "totalCount": ""
       },
       "enabled": true,
       "parameters": [
@@ -171,18 +159,18 @@
           ]
         },
         {
-          "title": "Records to Skip",
+          "title": "Offset",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
           "name": "skip",
-          "tooltip": "Specify the first X records that you want to skip while retrieving response from Fortinet FortiCNP.",
+          "tooltip": "Helpful if you want to get a subset of response, say data starting from the 10th position from Fortinet FortiCNP..",
           "description": "(Optional) Specify the first X records that you want to skip while retrieving response from Fortinet FortiCNP.",
           "value": 0
         },
         {
-          "title": "Limit Fetched Records To",
+          "title": "Limit",
           "required": false,
           "editable": true,
           "visible": true,
@@ -193,7 +181,7 @@
           "value": 50
         },
         {
-          "title": "Order By",
+          "title": "Sort By",
           "required": false,
           "editable": true,
           "visible": true,
@@ -205,12 +193,12 @@
             "Risk Level"
           ],
           "name": "orderBy",
-          "tooltip": "The filter options for the return resource list, available options: ID, Region, Resource Type and Risk Level",
-          "description": "The filter options for the return resource list, available options: ID, Region, Resource Type and Risk Level",
+          "tooltip": "Sort the response based on input field given, available options: ID, Region, Resource Type and Risk Level",
+          "description": "Sort the response based on input field given, available options: ID, Region, Resource Type and Risk Level",
           "value": "Ascending"
         },
         {
-          "title": "Order Direction",
+          "title": "Sort Order",
           "required": false,
           "editable": true,
           "visible": true,
@@ -220,8 +208,8 @@
             "Descending"
           ],
           "name": "orderDirection",
-          "tooltip": "The order of the returned resource list, it can be ascending order or descending order.",
-          "description": "The order of the returned resource list, it can be ascending order or descending order.",
+          "tooltip": "Select the order of the returned resource list, it can be ascending order or descending order.",
+          "description": "Select the order of the returned resource list, it can be ascending order or descending order.",
           "value": "Ascending"
         }
       ]
@@ -288,50 +276,47 @@
       "category": "investigation",
       "annotation": "get_alert_by_filter",
       "output_schema": {
-        "data": {
-          "data": [
-            {
-              "buId": "",
-              "companyId": "",
-              "timestampUUID": "",
-              "id": "",
-              "object": "",
-              "objectType": "",
-              "objectId": "",
-              "user": "",
-              "userName": "",
-              "severity": "",
-              "applicationId": "",
-              "violationActivity": "",
-              "displayOperation": "",
-              "createTime": "",
-              "updateTime": "",
-              "policyName": "",
-              "policyId": "",
-              "policyCode": "",
-              "contextName": "",
-              "eventIdList": [
-              ],
-              "service": "",
-              "description": "",
-              "resultDesc": "",
-              "matches": "",
-              "region": "",
-              "alertType": "",
-              "defineType": "",
-              "title": "",
-              "nodeType": "",
-              "port": "",
-              "state": "",
-              "resourceId": ""
-            }
-          ],
-          "totalPage": "",
-          "limit": "",
-          "skip": "",
-          "totalCount": ""
-        },
-        "Status": ""
+        "data": [
+          {
+            "buId": "",
+            "companyId": "",
+            "timestampUUID": "",
+            "id": "",
+            "object": "",
+            "objectType": "",
+            "objectId": "",
+            "user": "",
+            "userName": "",
+            "severity": "",
+            "applicationId": "",
+            "violationActivity": "",
+            "displayOperation": "",
+            "createTime": "",
+            "updateTime": "",
+            "policyName": "",
+            "policyId": "",
+            "policyCode": "",
+            "contextName": "",
+            "eventIdList": [
+            ],
+            "service": "",
+            "description": "",
+            "resultDesc": "",
+            "matches": "",
+            "region": "",
+            "alertType": "",
+            "defineType": "",
+            "title": "",
+            "nodeType": "",
+            "port": "",
+            "state": "",
+            "resourceId": ""
+          }
+        ],
+        "totalPage": "",
+        "limit": "",
+        "skip": "",
+        "totalCount": ""
       },
       "enabled": true,
       "parameters": [
@@ -399,18 +384,18 @@
           "tooltip": "Specify one or multiple states (CSV format if you are specifying multiple states) based on which you want to retrieve alerts from Fortinet FortiCNP."
         },
         {
-          "title": "Records to Skip",
+          "title": "Offset",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
           "name": "skip",
-          "tooltip": "Specify the first X records that you want to skip while retrieving alerts from Fortinet FortiCNP.",
+          "tooltip": "Helpful if you want to get a subset of response, say data starting from the 10th position from Fortinet FortiCNP.",
           "description": "(Optional) Specify the first X records that you want to skip while retrieving alerts from Fortinet FortiCNP.",
           "value": 0
         },
         {
-          "title": "Limit Fetched Records To",
+          "title": "Limit",
           "required": false,
           "editable": true,
           "visible": true,
@@ -588,18 +573,18 @@
           "description": "Select the End DateTime of filtered open alerts till when you want to retrieve data from Fortinet FortiCNP."
         },
         {
-          "title": "Records to Skip",
+          "title": "Offset",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "integer",
           "name": "skip",
-          "tooltip": "Specify the first X records that you want to skip while retrieving response from Fortinet FortiCNP.",
+          "tooltip": "Helpful if you want to get a subset of response, say data starting from the 10th position from Fortinet FortiCNP.",
           "description": "(Optional) Specify the first X records that you want to skip while retrieving response from Fortinet FortiCNP.",
           "value": 0
         },
         {
-          "title": "Limit Fetched Records To",
+          "title": "Limit",
           "required": false,
           "editable": true,
           "visible": true,
