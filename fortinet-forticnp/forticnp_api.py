@@ -72,8 +72,8 @@ class FortiCnpCS(object):
             logger.info('Authentication successful. it will be valid until: {0}\n{1}\n'.format(self.token_expires_at,self.company_name))
 
         except Exception as err:
-            logger.exception("Authentication Failed, error is {0}".format(str(err)))
-            raise ConnectorError("Authentication Failed, error is {0}".format(str(err)))
+            logger.exception(str(err))
+            raise ConnectorError(str(err))
             
     def make_rest_call(self, endpoint, params=None, data=None, json=None, method='GET', login_flag=False):
         '''make_rest_call'''
@@ -88,7 +88,7 @@ class FortiCnpCS(object):
                                         headers=self.headers,
                                         params=params,
                                         timeout=self.request_timeout,
-                                        verify=self.verify_ssl,                                        
+                                        verify=self.verify_ssl
                                         )
             logger.debug('REQUESTS_DUMP:\n{0}'.format(dump.dump_all(response).decode('utf-8')))
 
@@ -97,6 +97,8 @@ class FortiCnpCS(object):
                     return response.json()
                 else:
                     return response.content
+            elif response.status_code == 401:
+                raise ConnectorError('Invalid Credentials')
             else:
                 logger.exception({"data": response.content, 'Status': 'Failed with Status Code: '+str(response.status_code)})
                 raise ConnectorError('response = {0} and status code = {1}'.format(response.content, response.status_code))
@@ -125,7 +127,7 @@ class FortiCnpCS(object):
         '''Get the user and account basic information from FortiCWP'''
         return self.make_rest_call(GET_RESOURCE_MAP)
       
-    def get_alert_by_filter(self, start_time, end_time, skip, limit, alert_id='', alert_user='', severity='' ,alert_state=''):
+    def get_alert_by_filter(self, start_time, end_time, skip, limit, alert_id='', alert_user='', severity='', alert_state=''):
         '''Get cloud service alert details.'''
 
         self.headers.update({'companyId': str(self.company_id), 'roleId': str(self.role_id)})
@@ -133,7 +135,7 @@ class FortiCnpCS(object):
         payload = {
         'startTime': start_time,
         'endTime': end_time,
-        'id':alert_id,
+        'id': alert_id,
         'user': csv_to_array(alert_user),
         'activity':[],
         'objectIdList':[],
