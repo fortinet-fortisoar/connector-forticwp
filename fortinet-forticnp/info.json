@@ -471,7 +471,29 @@
       "category": "investigation",
       "annotation": "get_document_violation",
       "output_schema": {
-        "data": [],
+        "data": [
+          {
+            "dataPatternId": "",
+            "matchedStatus": {
+              "objectType": "",
+              "matchedObjects": [
+                {
+                  "file_name": "",
+                  "matched_num": "",
+                  "matched_result": [
+                    {
+                      "matched": ""
+                    }
+                  ]
+                }
+              ],
+              "totalMatchedNum": ""
+            },
+            "dataPatternName": "",
+            "violationDetail": "",
+            "dataPatternCategory": ""
+          }
+        ],
         "totalPage": "",
         "limit": "",
         "skip": "",
