@@ -27,8 +27,8 @@ def FortiCNP_init(config):
         )
         return FortiCNP
     except Exception as e:
-        logger.exception("Failed to connect: {}".format(e))
-        raise ConnectorError("Failed to connect: {}".format(e))
+        logger.exception('{0}'.format(e))
+        raise ConnectorError('{0}'.format(e))
 
 
 def check_health(config):

@@ -145,7 +145,7 @@
           "visible": true,
           "type": "integer",
           "name": "skip",
-          "tooltip": "Helpful if you want to get a subset of response, say data starting from the 10th position from Fortinet FortiCNP..",
+          "tooltip": "Helpful if you want to get a subset of response, say data starting from the 10th position from Fortinet FortiCNP.",
           "description": "(Optional) Specify the first X records that you want to skip while retrieving response from Fortinet FortiCNP.",
           "value": 0
         },

@@ -6,6 +6,7 @@
 
 import requests
 from requests_toolbelt.utils import dump
+from requests import exceptions as req_exceptions
 from connectors.core.connector import get_logger, ConnectorError
 from .constants import *
 
@@ -106,16 +107,19 @@ class FortiCnpCS(object):
                     {"data": response.content, 'Status': 'Failed with Status Code: ' + str(response.status_code)})
                 raise ConnectorError(
                     'response = {0} and status code = {1}'.format(response.content, response.status_code))
-        except requests.exceptions.SSLError:
-            raise ConnectorError('SSL certificate validation failed')
-        except requests.exceptions.ConnectTimeout:
-            raise ConnectorError('The request timed out while trying to connect to the server')
-        except requests.exceptions.ReadTimeout:
-            raise ConnectorError('The server did not send any data in the allotted amount of time')
-        except requests.exceptions.ConnectionError:
-            raise ConnectorError('Invalid endpoint or credentials')
+        except req_exceptions.SSLError:
+            logger.error('An SSL error occurred')
+            raise ConnectorError('An SSL error occurred')
+        except req_exceptions.ConnectionError:
+            logger.error('A connection error occurred')
+            raise ConnectorError('A connection error occurred')
+        except req_exceptions.Timeout:
+            logger.error('The request timed out')
+            raise ConnectorError('The request timed out')
+        except req_exceptions.RequestException:
+            logger.error('There was an error while handling the request')
+            raise ConnectorError('There was an error while handling the request')
         except Exception as err:
-            logger.exception(str(err))
             raise ConnectorError(str(err))
 
     def get_resource_map(self):
