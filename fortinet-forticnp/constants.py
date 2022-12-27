@@ -16,5 +16,5 @@ PARAM_MAPPING_DICT = {
     "Resource Type": "resource_type",
     "Risk Level": "risk_level",
     "Ascending": "asc",
-    "Descending": "desc"
+    "Descending": "dsc"
 }
