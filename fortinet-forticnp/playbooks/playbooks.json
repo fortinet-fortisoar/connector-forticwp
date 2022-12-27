@@ -121,7 +121,7 @@
           "tag": null,
           "description": "Get all the findings of a specific resource in a custom date range.",
           "isActive": false,
-          "debug": true,
+          "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
