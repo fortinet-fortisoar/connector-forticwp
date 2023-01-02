@@ -8,7 +8,7 @@
   "icon_large_name": "large_icon.png",
   "cs_approved": true,
   "cs_compatible": true,
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/2.0.0/fortinet-forticnp/472/fortinet-forticnp-v2-0-0",
   "category": "Investigation",
   "ingestion_modes": [
     "scheduled"
@@ -22,7 +22,7 @@
         "visible": true,
         "type": "text",
         "name": "server_url",
-        "description": "URL of the Fortinet FortiCNP API",
+        "description": "URL of the Fortinet FortiCNP API server to connect and perform automated operations.",
         "value": "https://www.FortiCNP.com"
       },
       {
@@ -32,7 +32,7 @@
         "visible": true,
         "type": "password",
         "name": "api_key",
-        "description": "FortiCNP Credential, follow this link to generate it https://docs.fortinet.com/document/FortiCNP/21.1.0/online-help/585481/generate-credential "
+        "description": "The FortiCNP credentials required to connect to FortiCNP server and perform automated operations. Follow this link to generate the credentials."
       },
       {
         "title": "Verify SSL",
@@ -42,7 +42,7 @@
         "type": "checkbox",
         "name": "verify_ssl",
         "value": true,
-        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True."
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set to True."
       }
     ]
   },
@@ -50,7 +50,7 @@
     {
       "operation": "get_resource_map",
       "title": "Get Resource Map",
-      "description": "Retrieves the basic information for users and accounts from Fortinet FortiCNP.",
+      "description": "Retrieves the user and account basic information from FortiCNP, including company name, user name, and company ID.",
       "category": "investigation",
       "annotation": "get_resource_map",
       "output_schema": [
@@ -72,7 +72,7 @@
     {
       "operation": "get_resource_list",
       "title": "Get Resource List",
-      "description": "Get Resource List is a key API to retrieve a complete list of cloud resource details.",
+      "description": "Retrieve a complete list of cloud resource details based on filter JSON that you have specified.",
       "category": "investigation",
       "annotation": "get_resource_list",
       "output_schema": {
@@ -145,8 +145,8 @@
           "visible": true,
           "type": "integer",
           "name": "skip",
-          "tooltip": "Helpful if you want to get a subset of response, say data starting from the 10th position from Fortinet FortiCNP.",
-          "description": "(Optional) Specify the first X records that you want to skip while retrieving response from Fortinet FortiCNP.",
+          "tooltip": "(Optional) Specify the count of the first few records to skip while retrieving response from Fortinet FortiCNP.",
+          "description": "(Optional) Specify the count of the first few records to skip while retrieving response from Fortinet FortiCNP.",
           "value": 0
         },
         {
@@ -156,8 +156,8 @@
           "visible": true,
           "type": "integer",
           "name": "limit",
-          "tooltip": "Specify the maximum number of records that you want this operation to fetch from Fortinet FortiCNP.",
-          "description": "(Optional) Specify the maximum number of records that you want this operation to fetch from Fortinet FortiCNP",
+          "tooltip": "(Optional) Specify the maximum number of records that you want this operation to fetch from Fortinet FortiCNP.",
+          "description": "(Optional) Specify the maximum number of records that you want this operation to fetch from Fortinet FortiCNP.",
           "value": 50
         },
         {
@@ -173,8 +173,8 @@
             "Risk Level"
           ],
           "name": "orderBy",
-          "tooltip": "Sort the response based on input field given, available options: ID, Region, Resource Type and Risk Level",
-          "description": "Sort the response based on input field given, available options: ID, Region, Resource Type and Risk Level"
+          "tooltip": "Specify the sorting parameter from the following available options: ID, Region, Resource Type and Risk Level",
+          "description": "Specify the sorting parameter from the following available options: ID, Region, Resource Type and Risk Level"
         },
         {
           "title": "Sort Order",
@@ -187,8 +187,8 @@
             "Descending"
           ],
           "name": "orderDirection",
-          "tooltip": "Select the order of the returned resource list, it can be ascending order or descending order.",
-          "description": "Select the order of the returned resource list, it can be ascending order or descending order.",
+          "tooltip": "Specify the sort order of the returned resource list. The order can either be ascending or descending.",
+          "description": "Specify the sort order of the returned resource list. The order can either be ascending or descending.",
           "value": "Ascending"
         }
       ]
@@ -196,7 +196,7 @@
     {
       "operation": "get_resource_details",
       "title": "Get Resource Details",
-      "description": "Retrieve details of a specific cloud resource from Fortinet FortiCNP",
+      "description": "Retrieve details of a specific cloud resource from Fortinet FortiCNP based on the Resource ID that you have specified.",
       "category": "investigation",
       "annotation": "get_resource_details",
       "output_schema": {
@@ -248,15 +248,15 @@
           "visible": true,
           "type": "text",
           "name": "resourceid",
-          "tooltip": "Specify the Resource ID whose details you want to retrieve from Fortinet FortiCNP.",
-          "description": "Specify the Resource ID whose details you want to retrieve from Fortinet FortiCNP."
+          "tooltip": "Specify the ID of the resource whose details you want to retrieve from Fortinet FortiCNP. The resource ID can be obtained through FortiCNP INSIGHTS > Risk > Resource Detail page.",
+          "description": "Specify the ID of the resource whose details you want to retrieve from Fortinet FortiCNP. The resource ID can be obtained through FortiCNP INSIGHTS > Risk > Resource Detail page."
         }
       ]
     },
     {
       "operation": "get_finding_list",
       "title": "Get Finding List",
-      "description": "Get all the findings of a specific resource in a custom date range.",
+      "description": "Get all the findings of a specific resource based on the resource ID and a custom date range that you have specified.",
       "category": "investigation",
       "annotation": "get_finding_list",
       "output_schema": {
@@ -311,8 +311,8 @@
           "visible": true,
           "type": "text",
           "name": "objectId",
-          "tooltip": "The resource ID of the resource. The resource ID can be obtained through FortiCNP INSIGHTS > Risk > Resource Detail page.",
-          "description": "The resource ID of the resource. The resource ID can be obtained through FortiCNP INSIGHTS > Risk > Resource Detail page."
+          "tooltip": "Specify the ID of the resource whose details you want to retrieve from Fortinet FortiCNP. The resource ID can be obtained through FortiCNP INSIGHTS > Risk > Resource Detail page.",
+          "description": "Specify the ID of the resource whose details you want to retrieve from Fortinet FortiCNP. The resource ID can be obtained through FortiCNP INSIGHTS > Risk > Resource Detail page."
         },
         {
           "title": "Start Time",
@@ -321,8 +321,8 @@
           "visible": true,
           "type": "datetime",
           "name": "startTime",
-          "tooltip": "Select the Start DateTime of filtered open alerts from when you want to retrieve data from Fortinet FortiCNP.",
-          "description": "Select the Start DateTime of filtered open alerts from when you want to retrieve data from Fortinet FortiCNP."
+          "tooltip": "Specify the start date-time of filtered open alerts from when you want to retrieve data from Fortinet FortiCNP.",
+          "description": "Specify the start date-time of filtered open alerts from when you want to retrieve data from Fortinet FortiCNP."
         },
         {
           "title": "End Time",
@@ -331,8 +331,8 @@
           "visible": true,
           "type": "datetime",
           "name": "endTime",
-          "tooltip": "Select the End DateTime of filtered open alerts till when you want to retrieve data from Fortinet FortiCNP.",
-          "description": "Select the End DateTime of filtered open alerts till when you want to retrieve data from Fortinet FortiCNP."
+          "tooltip": "Specify the end date-time of filtered open alerts till when you want to retrieve data from Fortinet FortiCNP.",
+          "description": "Specify the end date-time of filtered open alerts till when you want to retrieve data from Fortinet FortiCNP."
         },
         {
           "title": "Offset",
@@ -341,8 +341,8 @@
           "visible": true,
           "type": "integer",
           "name": "skip",
-          "tooltip": "Helpful if you want to get a subset of response, say data starting from the 10th position from Fortinet FortiCNP.",
-          "description": "(Optional) Specify the first X records that you want to skip while retrieving response from Fortinet FortiCNP.",
+          "tooltip": "(Optional) Specify the count of the first few records to skip while retrieving response from Fortinet FortiCNP.",
+          "description": "(Optional) Specify the count of the first few records to skip while retrieving response from Fortinet FortiCNP.",
           "value": 0
         },
         {
@@ -352,8 +352,8 @@
           "visible": true,
           "type": "integer",
           "name": "limit",
-          "tooltip": "Specify the maximum number of records that you want this operation to fetch from Fortinet FortiCNP.",
-          "description": "(Optional) Specify the maximum number of records that you want this operation to fetch from Fortinet FortiCNP",
+          "tooltip": "(Optional) Specify the maximum number of records that you want this operation to fetch from Fortinet FortiCNP.",
+          "description": "(Optional) Specify the maximum number of records that you want this operation to fetch from Fortinet FortiCNP.",
           "value": 50
         }
       ]
